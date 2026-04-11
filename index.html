@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Economy AI · Fresno, CA</title>
+<title>Economy AI Automation Agency · Fresno, CA</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;600;800&family=Space+Grotesk:wght@300;400;700&display=swap" rel="stylesheet">
@@ -28,7 +28,6 @@
         <rect x="20" y="19.9" width="3.2" height="1.6" rx="0.8" fill="#F0A500" fill-opacity="0.5"/>
         <circle cx="24" cy="25.2" r="1.6" fill="#F0A500" fill-opacity="0.5"/>
       </svg>
-      
     </div>
     <div class="logo-text">
       <span class="logo-top">Economy AI</span>
@@ -148,177 +147,156 @@
   <h2>Built for <em>Central Valley</em> businesses</h2>
   <p class="sec-sub">From agriculture to healthcare — we understand the industries that drive Fresno's economy.</p>
 
-  <div class="industry-details-list">
+  <div class="ind-tabs">
+    <button class="ind-tab active" data-tab="agri">Agriculture & agribusiness</button>
+    <button class="ind-tab" data-tab="health">Healthcare & medical</button>
+    <button class="ind-tab" data-tab="realestate">Real estate & property mgmt</button>
+    <button class="ind-tab" data-tab="legal">Legal & professional services</button>
+    <button class="ind-tab" data-tab="retail">Retail & e-commerce</button>
+    <button class="ind-tab" data-tab="construction">Construction & trades</button>
+    <button class="ind-tab" data-tab="logistics">Logistics & distribution</button>
+    <button class="ind-tab" data-tab="restaurant">Restaurants & hospitality</button>
+    <button class="ind-tab" data-tab="edu">Education & nonprofits</button>
+    <button class="ind-tab" data-tab="finance">Financial services</button>
+  </div>
 
-    <details>
-      <summary>Agriculture & agribusiness</summary>
-      <div class="details-body">
-        <p><strong>Field & crop management</strong></p>
-        <p>Automated soil monitoring systems can pull data from sensors and trigger irrigation, fertilizer, or pest alerts without anyone checking a dashboard. AI can analyze drone or satellite imagery to flag stressed crops, disease spread, or irrigation gaps before they become expensive problems. Yield prediction models trained on your historical data, weather, and soil conditions can help you plan harvests and contracts more accurately.</p>
-        <p><strong>Labor & workforce</strong></p>
-        <p>Scheduling automation is huge in ag — matching crew size to harvest windows, weather forecasts, and field readiness. AI can also handle H-2A compliance paperwork, timesheet collection, and payroll routing, which is notoriously manual and error-prone. Automated onboarding flows for seasonal workers (forms, safety training reminders, document collection) save weeks of admin time each season.</p>
-        <p><strong>Compliance & food safety</strong></p>
-        <p>USDA and FDA documentation, pesticide application logs, food safety audit trails, and traceability records can all be auto-generated from field inputs rather than filled in manually. AI can flag when a record is incomplete or a certification is expiring before it becomes a violation.</p>
-        <p><strong>Sales, contracts & buyer relations</strong></p>
-        <p>Many growers still manage buyer relationships in spreadsheets. AI can automate contract renewal reminders, produce availability updates to buyers, invoice generation tied to harvest data, and price quote follow-ups. A simple chatbot on a grower's website can handle buyer inquiries 24/7.</p>
-        <p><strong>Supply chain & logistics</strong></p>
-        <p>Automating load scheduling, carrier communication, and cold chain temperature alerts reduces spoilage and missed windows. AI can also monitor commodity prices and alert you when to lock in contracts or delay sales.</p>
-        <p><strong>Accounting & back office</strong></p>
-        <p>Automating accounts payable from vendor invoices (OCR + routing for approval), reconciling fuel and equipment costs by field or crop, and generating profit/loss by commodity are all very buildable with current AI tools.</p>
-      </div>
-    </details>
+  <div class="ind-panel">
 
-    <details>
-      <summary>Healthcare & medical</summary>
-      <div class="details-body">
-        <p><strong>Front desk & patient communication</strong></p>
-        <p>Appointment scheduling, confirmation calls, and reminders are the single biggest quick win. An AI voice agent or chatbot can handle all inbound scheduling requests, send automated reminders via text/email, and manage cancellation/rebooking — eliminating most of what a front desk person spends their day on.</p>
-        <p><strong>Insurance & billing</strong></p>
-        <p>Prior authorization requests, eligibility verification, and claim status follow-ups are brutally manual. AI can automate eligibility checks before appointments, flag likely denial risks on claims before submission, and chase outstanding claims with automated follow-up sequences.</p>
-        <p><strong>Clinical documentation</strong></p>
-        <p>AI medical scribes that listen to patient encounters and auto-generate SOAP notes are one of the hottest areas right now. Reducing documentation time by 30–50% is a massive quality-of-life improvement for physicians.</p>
-        <p><strong>Patient intake & forms</strong></p>
-        <p>Automating digital intake forms, routing them into the EHR, flagging incomplete information, and triggering pre-visit instructions removes a huge amount of manual data entry.</p>
-        <p><strong>Referral management</strong></p>
-        <p>Automating referral tracking — sending the referral, following up with the receiving provider, confirming the patient booked, and closing the loop back to the referring physician — is a workflow most practices desperately need and currently do entirely by phone and fax.</p>
-        <p><strong>Staff & operations</strong></p>
-        <p>Shift scheduling for nursing and admin staff, credential expiration tracking, onboarding workflows for new hires, and supply reorder triggers based on usage patterns are all solid mid-tier automation projects.</p>
-      </div>
-    </details>
+    <div class="ind-content active" id="tab-agri">
+      <p><strong>Field & crop management</strong></p>
+      <p>Automated soil monitoring systems can pull data from sensors and trigger irrigation, fertilizer, or pest alerts without anyone checking a dashboard. AI can analyze drone or satellite imagery to flag stressed crops, disease spread, or irrigation gaps before they become expensive problems. Yield prediction models trained on your historical data, weather, and soil conditions can help you plan harvests and contracts more accurately.</p>
+      <p><strong>Labor & workforce</strong></p>
+      <p>Scheduling automation is huge in ag — matching crew size to harvest windows, weather forecasts, and field readiness. AI can also handle H-2A compliance paperwork, timesheet collection, and payroll routing, which is notoriously manual and error-prone. Automated onboarding flows for seasonal workers (forms, safety training reminders, document collection) save weeks of admin time each season.</p>
+      <p><strong>Compliance & food safety</strong></p>
+      <p>USDA and FDA documentation, pesticide application logs, food safety audit trails, and traceability records can all be auto-generated from field inputs rather than filled in manually. AI can flag when a record is incomplete or a certification is expiring before it becomes a violation.</p>
+      <p><strong>Sales, contracts & buyer relations</strong></p>
+      <p>Many growers still manage buyer relationships in spreadsheets. AI can automate contract renewal reminders, produce availability updates to buyers, invoice generation tied to harvest data, and price quote follow-ups. A simple chatbot on a grower's website can handle buyer inquiries 24/7.</p>
+      <p><strong>Accounting & back office</strong></p>
+      <p>Automating accounts payable from vendor invoices (OCR + routing for approval), reconciling fuel and equipment costs by field or crop, and generating profit/loss by commodity are all very buildable with current AI tools.</p>
+    </div>
 
-    <details>
-      <summary>Real estate & property management</summary>
-      <div class="details-body">
-        <p><strong>Lead capture & qualification</strong></p>
-        <p>An AI chatbot on a brokerage or property management website can engage visitors instantly, ask qualifying questions (budget, timeline, location, buy vs. rent), and either book a showing automatically or route the lead to the right agent. For property managers, the same bot can handle rental inquiries, collect prospect information, and schedule tours — 24/7 without a leasing agent on call.</p>
-        <p><strong>Follow-up & nurture sequences</strong></p>
-        <p>Most leads in real estate don't convert for weeks or months. Automated follow-up sequences keep agents top of mind without manual effort. AI can personalize these sequences based on the lead's preferences and flag when a cold lead re-engages so an agent can jump in at the right moment.</p>
-        <p><strong>Tenant & resident communication</strong></p>
-        <p>Tenant communication is constant and largely repetitive — maintenance request intake, rent reminders, lease renewal notices, move-in and move-out instructions. All of this can be handled by AI messaging workflows, with escalation to a human only when genuinely needed.</p>
-        <p><strong>Maintenance coordination</strong></p>
-        <p>Automating maintenance request triage — collecting the request, categorizing urgency, dispatching the right vendor, confirming scheduling with the tenant, and following up on completion — removes one of the most labor-intensive parts of property management.</p>
-        <p><strong>Transaction coordination</strong></p>
-        <p>For brokerages, transaction coordination is a detailed, deadline-heavy process that AI handles well — tracking contingency dates, sending reminders to all parties, collecting signatures, and keeping buyers and sellers informed without an agent managing every touchpoint manually.</p>
-        <p><strong>Reporting & owner communication</strong></p>
-        <p>Automated reporting that pulls live data and sends formatted owner summaries on a schedule — along with an AI assistant that can answer owner questions about their portfolio — is a strong mid-tier automation project.</p>
-      </div>
-    </details>
+    <div class="ind-content" id="tab-health">
+      <p><strong>Front desk & patient communication</strong></p>
+      <p>Appointment scheduling, confirmation calls, and reminders are the single biggest quick win. An AI voice agent or chatbot can handle all inbound scheduling requests, send automated reminders via text/email, and manage cancellation/rebooking — eliminating most of what a front desk person spends their day on.</p>
+      <p><strong>Insurance & billing</strong></p>
+      <p>Prior authorization requests, eligibility verification, and claim status follow-ups are brutally manual. AI can automate eligibility checks before appointments, flag likely denial risks on claims before submission, and chase outstanding claims with automated follow-up sequences.</p>
+      <p><strong>Clinical documentation</strong></p>
+      <p>AI medical scribes that listen to patient encounters and auto-generate SOAP notes are one of the hottest areas right now. Reducing documentation time by 30–50% is a massive quality-of-life improvement for physicians.</p>
+      <p><strong>Patient intake & forms</strong></p>
+      <p>Automating digital intake forms, routing them into the EHR, flagging incomplete information, and triggering pre-visit instructions removes a huge amount of manual data entry.</p>
+      <p><strong>Referral management</strong></p>
+      <p>Automating referral tracking — sending the referral, following up with the receiving provider, confirming the patient booked, and closing the loop back to the referring physician — is a workflow most practices desperately need and currently do entirely by phone and fax.</p>
+      <p><strong>Staff & operations</strong></p>
+      <p>Shift scheduling for nursing and admin staff, credential expiration tracking, onboarding workflows for new hires, and supply reorder triggers based on usage patterns are all solid mid-tier automation projects.</p>
+    </div>
 
-    <details>
-      <summary>Legal & professional services</summary>
-      <div class="details-body">
-        <p><strong>Client intake & onboarding</strong></p>
-        <p>AI can automate the entire intake process — sending digital questionnaires, collecting signed engagement letters, running conflict checks against existing client databases, and populating the case management system before the attorney ever speaks to the client.</p>
-        <p><strong>Document drafting & review</strong></p>
-        <p>AI is remarkably good at generating first drafts of standard legal documents — NDAs, engagement letters, demand letters, contracts, and operating agreements — from a structured intake form. Cutting drafting time from two hours to fifteen minutes on routine documents is a meaningful efficiency gain.</p>
-        <p><strong>Deadline & calendar management</strong></p>
-        <p>AI can monitor all active matters, track critical deadlines, send escalating reminders to responsible attorneys, and flag anything at risk of slipping — far more reliably than a shared calendar.</p>
-        <p><strong>Billing & time capture</strong></p>
-        <p>AI tools can reconstruct billable time from calendar entries, emails, and document activity, suggesting time entries for attorney review rather than requiring manual logging. Automated invoice generation, payment reminders, and trust account reconciliation can all run without bookkeeper involvement on routine matters.</p>
-        <p><strong>Compliance & regulatory monitoring</strong></p>
-        <p>AI can monitor regulatory feeds, flag relevant rule changes, and generate client alerts automatically — essential for HR consultancies, accounting firms, and employment law practices whose clients need to be notified quickly when something changes.</p>
-      </div>
-    </details>
+    <div class="ind-content" id="tab-realestate">
+      <p><strong>Lead capture & qualification</strong></p>
+      <p>An AI chatbot on a brokerage or property management website can engage visitors instantly, ask qualifying questions (budget, timeline, location, buy vs. rent), and either book a showing automatically or route the lead to the right agent. For property managers, the same bot can handle rental inquiries, collect prospect information, and schedule tours — 24/7 without a leasing agent on call.</p>
+      <p><strong>Follow-up & nurture sequences</strong></p>
+      <p>Most leads in real estate don't convert for weeks or months. Automated follow-up sequences keep agents top of mind without manual effort. AI can personalize these sequences based on the lead's preferences and flag when a cold lead re-engages so an agent can jump in at the right moment.</p>
+      <p><strong>Tenant & resident communication</strong></p>
+      <p>Tenant communication is constant and largely repetitive — maintenance request intake, rent reminders, lease renewal notices, move-in and move-out instructions. All of this can be handled by AI messaging workflows, with escalation to a human only when genuinely needed.</p>
+      <p><strong>Maintenance coordination</strong></p>
+      <p>Automating maintenance request triage — collecting the request, categorizing urgency, dispatching the right vendor, confirming scheduling with the tenant, and following up on completion — removes one of the most labor-intensive parts of property management.</p>
+      <p><strong>Transaction coordination</strong></p>
+      <p>For brokerages, transaction coordination is a detailed, deadline-heavy process that AI handles well — tracking contingency dates, sending reminders to all parties, collecting signatures, and keeping buyers and sellers informed without an agent managing every touchpoint manually.</p>
+      <p><strong>Reporting & owner communication</strong></p>
+      <p>Automated reporting that pulls live data and sends formatted owner summaries on a schedule — along with an AI assistant that can answer owner questions about their portfolio — is a strong mid-tier automation project.</p>
+    </div>
 
-    <details>
-      <summary>Retail & e-commerce</summary>
-      <div class="details-body">
-        <p><strong>Customer service & support automation</strong></p>
-        <p>An AI chatbot trained on your store's policies and product catalog can handle 70–80% of customer service conversations without a human agent, around the clock — order status, return requests, shipping questions, and product availability.</p>
-        <p><strong>Order management & fulfillment</strong></p>
-        <p>AI can automate the entire order processing workflow — confirming orders, sending tracking updates, flagging fulfillment exceptions, routing split orders to the right warehouse, and triggering carrier communications when shipments are delayed.</p>
-        <p><strong>Inventory & purchasing</strong></p>
-        <p>AI demand forecasting can generate automated purchase orders when stock hits reorder points, flag slow-moving inventory before it becomes a markdown problem, and suggest optimal reorder quantities by SKU.</p>
-        <p><strong>Email & SMS marketing automation</strong></p>
-        <p>AI can personalize email and SMS campaigns at the individual customer level — recommending products based on purchase history, adjusting send timing based on open behavior, and generating dynamic content that changes based on customer segment.</p>
-        <p><strong>Reviews & reputation management</strong></p>
-        <p>AI can monitor every new review across Google, Yelp, and Amazon in real time, draft personalized responses, flag negative reviews for immediate human attention, and generate weekly reputation summary reports.</p>
-      </div>
-    </details>
+    <div class="ind-content" id="tab-legal">
+      <p><strong>Client intake & onboarding</strong></p>
+      <p>AI can automate the entire intake process — sending digital questionnaires, collecting signed engagement letters, running conflict checks against existing client databases, and populating the case management system before the attorney ever speaks to the client.</p>
+      <p><strong>Document drafting & review</strong></p>
+      <p>AI is remarkably good at generating first drafts of standard legal documents — NDAs, engagement letters, demand letters, contracts, and operating agreements — from a structured intake form. Cutting drafting time from two hours to fifteen minutes on routine documents is a meaningful efficiency gain.</p>
+      <p><strong>Deadline & calendar management</strong></p>
+      <p>AI can monitor all active matters, track critical deadlines, send escalating reminders to responsible attorneys, and flag anything at risk of slipping — far more reliably than a shared calendar.</p>
+      <p><strong>Billing & time capture</strong></p>
+      <p>AI tools can reconstruct billable time from calendar entries, emails, and document activity, suggesting time entries for attorney review rather than requiring manual logging. Automated invoice generation, payment reminders, and trust account reconciliation can all run without bookkeeper involvement on routine matters.</p>
+      <p><strong>Compliance & regulatory monitoring</strong></p>
+      <p>AI can monitor regulatory feeds, flag relevant rule changes, and generate client alerts automatically — essential for HR consultancies, accounting firms, and employment law practices whose clients need to be notified quickly when something changes.</p>
+    </div>
 
-    <details>
-      <summary>Construction & trades</summary>
-      <div class="details-body">
-        <p><strong>Lead response & qualification</strong></p>
-        <p>An AI chatbot or voice agent can respond to inbound inquiries instantly at any hour, ask the right qualifying questions (project type, timeline, location, budget range), and either book an estimate appointment automatically or route the lead to the right crew foreman.</p>
-        <p><strong>Estimate & proposal generation</strong></p>
-        <p>AI can pull from a library of standard line items, labor rates, and material costs to generate a formatted proposal from a simple project intake form or site visit notes — turning a multi-hour estimating process into a quick review.</p>
-        <p><strong>Job scheduling & crew dispatch</strong></p>
-        <p>AI scheduling tools can optimize crew assignments across jobs, automatically notify technicians of their schedule, send reminders before each job, and dynamically reroute when a job runs long or a crew member calls out.</p>
-        <p><strong>Project documentation & reporting</strong></p>
-        <p>Voice-to-text field notes that auto-populate daily log templates, photo documentation organized by job and date, and automated progress reports sent to clients on a set schedule keeps projects better documented with far less effort from the people doing the actual work.</p>
-        <p><strong>Invoicing, payments & collections</strong></p>
-        <p>AI can automate invoice generation tied to project milestones or completed work orders, send payment reminders on a schedule, and flag overdue invoices for follow-up.</p>
-        <p><strong>Safety & compliance documentation</strong></p>
-        <p>AI can automate safety checklist completion from mobile devices in the field, track training certification expiration dates for every crew member, and maintain a compliance audit trail that is always current and accessible.</p>
-      </div>
-    </details>
+    <div class="ind-content" id="tab-retail">
+      <p><strong>Customer service & support automation</strong></p>
+      <p>An AI chatbot trained on your store's policies and product catalog can handle 70–80% of customer service conversations without a human agent, around the clock — order status, return requests, shipping questions, and product availability.</p>
+      <p><strong>Order management & fulfillment</strong></p>
+      <p>AI can automate the entire order processing workflow — confirming orders, sending tracking updates, flagging fulfillment exceptions, routing split orders to the right warehouse, and triggering carrier communications when shipments are delayed.</p>
+      <p><strong>Inventory & purchasing</strong></p>
+      <p>AI demand forecasting can generate automated purchase orders when stock hits reorder points, flag slow-moving inventory before it becomes a markdown problem, and suggest optimal reorder quantities by SKU.</p>
+      <p><strong>Email & SMS marketing automation</strong></p>
+      <p>AI can personalize email and SMS campaigns at the individual customer level — recommending products based on purchase history, adjusting send timing based on open behavior, and generating dynamic content that changes based on customer segment.</p>
+      <p><strong>Reviews & reputation management</strong></p>
+      <p>AI can monitor every new review across Google, Yelp, and Amazon in real time, draft personalized responses, flag negative reviews for immediate human attention, and generate weekly reputation summary reports.</p>
+    </div>
 
-    <details>
-      <summary>Logistics & distribution</summary>
-      <div class="details-body">
-        <p><strong>Shipment tracking & customer notifications</strong></p>
-        <p>An AI-powered tracking portal combined with automated proactive notifications — triggered at every status change from pickup through final delivery — eliminates the bulk of inbound customer service calls before they happen. When exceptions occur, AI detects them automatically and notifies the customer with a revised ETA before they even know something went wrong.</p>
-        <p><strong>Route optimization & dispatch</strong></p>
-        <p>AI route optimization — accounting for delivery windows, vehicle capacity, driver hours-of-service regulations, traffic patterns, and fuel costs — consistently reduces total miles driven and increases stops per route. Automated dispatch workflows turn a half-day planning process into a fully automated morning operation.</p>
-        <p><strong>Carrier management & freight procurement</strong></p>
-        <p>AI can automate carrier selection across a pre-approved panel, compare spot rates in real time, generate booking confirmations, and track carrier performance over time. For companies moving significant freight volume, automated freight procurement consistently delivers 8–15% cost reductions without sacrificing service levels.</p>
-        <p><strong>Exception management & claims</strong></p>
-        <p>AI can identify exceptions in real time, automatically open a claim workflow, collect the necessary documentation from drivers and warehouse staff, and route the claim to the right person for resolution — with automated follow-up until it is closed.</p>
-        <p><strong>Compliance & regulatory reporting</strong></p>
-        <p>AI can automate driver log monitoring, flag HOS violations before they become citations, track vehicle inspection schedules, and generate the regulatory reports required on a recurring basis.</p>
-      </div>
-    </details>
+    <div class="ind-content" id="tab-construction">
+      <p><strong>Lead response & qualification</strong></p>
+      <p>An AI chatbot or voice agent can respond to inbound inquiries instantly at any hour, ask the right qualifying questions (project type, timeline, location, budget range), and either book an estimate appointment automatically or route the lead to the right crew foreman.</p>
+      <p><strong>Estimate & proposal generation</strong></p>
+      <p>AI can pull from a library of standard line items, labor rates, and material costs to generate a formatted proposal from a simple project intake form or site visit notes — turning a multi-hour estimating process into a quick review.</p>
+      <p><strong>Job scheduling & crew dispatch</strong></p>
+      <p>AI scheduling tools can optimize crew assignments across jobs, automatically notify technicians of their schedule, send reminders before each job, and dynamically reroute when a job runs long or a crew member calls out.</p>
+      <p><strong>Invoicing, payments & collections</strong></p>
+      <p>AI can automate invoice generation tied to project milestones or completed work orders, send payment reminders on a schedule, and flag overdue invoices for follow-up.</p>
+      <p><strong>Safety & compliance documentation</strong></p>
+      <p>AI can automate safety checklist completion from mobile devices in the field, track training certification expiration dates for every crew member, and maintain a compliance audit trail that is always current and accessible.</p>
+    </div>
 
-    <details>
-      <summary>Restaurants & hospitality</summary>
-      <div class="details-body">
-        <p><strong>Reservations & waitlist management</strong></p>
-        <p>An AI voice agent or chatbot can handle reservation intake and modification around the clock, send automated confirmation and reminder messages that dramatically reduce no-show rates, manage a dynamic waitlist with real-time SMS updates, and release held tables automatically when a confirmed party fails to arrive within a set window.</p>
-        <p><strong>Customer communication & reputation management</strong></p>
-        <p>AI can monitor every new review across Google, Yelp, TripAdvisor, and OpenTable in real time, draft personalized responses for owner approval, and flag urgent negative reviews immediately. Automated post-visit messages requesting a review consistently lift review volume and average rating.</p>
-        <p><strong>Staff scheduling & labor management</strong></p>
-        <p>AI scheduling tools can forecast covers by shift using historical sales data, weather, local events, and day-of-week patterns, then generate an optimized schedule that matches labor to anticipated demand — reducing overstaffing and understaffing simultaneously.</p>
-        <p><strong>Inventory & food cost management</strong></p>
-        <p>AI can automate inventory counts from POS sales data, generate purchase orders based on projected need, flag variance between theoretical and actual food cost by category, and identify waste patterns by day, shift, or menu item.</p>
-        <p><strong>Event & catering coordination</strong></p>
-        <p>AI can automate the entire event inquiry workflow — capturing requirements, generating a customized proposal, routing the contract for e-signature, collecting the deposit, and sending a structured event brief to the kitchen and front-of-house team in advance.</p>
-      </div>
-    </details>
+    <div class="ind-content" id="tab-logistics">
+      <p><strong>Shipment tracking & customer notifications</strong></p>
+      <p>An AI-powered tracking portal combined with automated proactive notifications — triggered at every status change from pickup through final delivery — eliminates the bulk of inbound customer service calls before they happen. When exceptions occur, AI detects them automatically and notifies the customer with a revised ETA before they even know something went wrong.</p>
+      <p><strong>Route optimization & dispatch</strong></p>
+      <p>AI route optimization — accounting for delivery windows, vehicle capacity, driver hours-of-service regulations, traffic patterns, and fuel costs — consistently reduces total miles driven and increases stops per route. Automated dispatch workflows turn a half-day planning process into a fully automated morning operation.</p>
+      <p><strong>Carrier management & freight procurement</strong></p>
+      <p>AI can automate carrier selection across a pre-approved panel, compare spot rates in real time, generate booking confirmations, and track carrier performance over time. For companies moving significant freight volume, automated freight procurement consistently delivers 8–15% cost reductions without sacrificing service levels.</p>
+      <p><strong>Exception management & claims</strong></p>
+      <p>AI can identify exceptions in real time, automatically open a claim workflow, collect the necessary documentation from drivers and warehouse staff, and route the claim to the right person for resolution — with automated follow-up until it is closed.</p>
+      <p><strong>Compliance & regulatory reporting</strong></p>
+      <p>AI can automate driver log monitoring, flag HOS violations before they become citations, track vehicle inspection schedules, and generate the regulatory reports required on a recurring basis.</p>
+    </div>
 
-    <details>
-      <summary>Education & nonprofits</summary>
-      <div class="details-body">
-        <p><strong>Student & constituent intake automation</strong></p>
-        <p>AI can automate the entire intake sequence: sending digital application packets, following up on incomplete submissions, notifying applicants of status changes, and populating the student information system once enrollment is confirmed. For nonprofits, the same logic applies to program enrollment, volunteer onboarding, and client intake.</p>
-        <p><strong>Donor outreach & fundraising automation</strong></p>
-        <p>Automated donor journeys triggered by giving history, engagement level, and time since last gift can personalize outreach at a scale no development team can match manually. Lapsed donor win-back sequences, major gift prospect identification, and year-end giving campaigns all run in the background while your development staff focuses on relationships that require a human touch.</p>
-        <p><strong>Grant management & reporting</strong></p>
-        <p>AI can maintain a grant calendar with automated deadline reminders, generate progress report drafts from program data and staff field notes, track expenditures against grant budgets in real time, and maintain a compliance documentation library that makes audits straightforward.</p>
-        <p><strong>Volunteer coordination & management</strong></p>
-        <p>AI can automate volunteer recruitment campaigns, match volunteer skills and availability to open opportunities, send shift reminders and confirmations, collect hours for reporting purposes, and trigger thank-you messages and milestone recognition automatically.</p>
-        <p><strong>Finance & compliance automation</strong></p>
-        <p>AI can automate budget-versus-actual reporting by program and funding source, track restricted fund balances in real time, generate board financial packages on a monthly schedule, and maintain the documentation trail that makes annual audits far less painful.</p>
-      </div>
-    </details>
+    <div class="ind-content" id="tab-restaurant">
+      <p><strong>Reservations & waitlist management</strong></p>
+      <p>An AI voice agent or chatbot can handle reservation intake and modification around the clock, send automated confirmation and reminder messages that dramatically reduce no-show rates, manage a dynamic waitlist with real-time SMS updates, and release held tables automatically when a confirmed party fails to arrive within a set window.</p>
+      <p><strong>Customer communication & reputation management</strong></p>
+      <p>AI can monitor every new review across Google, Yelp, TripAdvisor, and OpenTable in real time, draft personalized responses for owner approval, and flag urgent negative reviews immediately. Automated post-visit messages requesting a review consistently lift review volume and average rating.</p>
+      <p><strong>Staff scheduling & labor management</strong></p>
+      <p>AI scheduling tools can forecast covers by shift using historical sales data, weather, local events, and day-of-week patterns, then generate an optimized schedule that matches labor to anticipated demand — reducing overstaffing and understaffing simultaneously.</p>
+      <p><strong>Inventory & food cost management</strong></p>
+      <p>AI can automate inventory counts from POS sales data, generate purchase orders based on projected need, flag variance between theoretical and actual food cost by category, and identify waste patterns by day, shift, or menu item.</p>
+      <p><strong>Event & catering coordination</strong></p>
+      <p>AI can automate the entire event inquiry workflow — capturing requirements, generating a customized proposal, routing the contract for e-signature, collecting the deposit, and sending a structured event brief to the kitchen and front-of-house team in advance.</p>
+    </div>
 
-    <details>
-      <summary>Financial services</summary>
-      <div class="details-body">
-        <p><strong>Client onboarding & KYC automation</strong></p>
-        <p>AI can automate the entire onboarding sequence: sending structured digital intake packets, extracting and validating information from uploaded documents, flagging incomplete or inconsistent submissions for human review, and routing verified clients through to account activation without manual data entry at each step.</p>
-        <p><strong>Lead nurture & prospect communication</strong></p>
-        <p>AI can automate prospect nurture sequences triggered by inquiry type, product interest, and life stage signals — closing the follow-up gaps that cause warm leads to go cold and ultimately choose a competitor who stayed in touch.</p>
-        <p><strong>Compliance monitoring & documentation</strong></p>
-        <p>AI can automate compliance documentation generation at the point of client interaction, flag communications that may require additional documentation, monitor for regulatory deadline compliance, and maintain searchable archives of all client communications.</p>
-        <p><strong>Insurance policy management & renewals</strong></p>
-        <p>AI can monitor the entire book of business for upcoming renewals, trigger automated outreach campaigns at 90, 60, and 30 days before expiration, generate renewal quotes from carrier systems, and escalate unresponsive clients to an agent before the renewal window closes.</p>
-        <p><strong>Portfolio monitoring & client alerts</strong></p>
-        <p>AI can monitor client portfolios against defined parameters, generate personalized alert messages when a portfolio drifts significantly from its target allocation, and trigger an advisor notification when a client's situation warrants a personal call.</p>
-        <p><strong>Accounts payable & back-office operations</strong></p>
-        <p>Automated invoice matching against contracts, approval routing workflows, commission calculation from production data, and expense categorization fed directly into accounting software reduce back-office headcount requirements and eliminate manual reconciliation errors.</p>
-      </div>
-    </details>
+    <div class="ind-content" id="tab-edu">
+      <p><strong>Student & constituent intake automation</strong></p>
+      <p>AI can automate the entire intake sequence: sending digital application packets, following up on incomplete submissions, notifying applicants of status changes, and populating the student information system once enrollment is confirmed. For nonprofits, the same logic applies to program enrollment, volunteer onboarding, and client intake.</p>
+      <p><strong>Donor outreach & fundraising automation</strong></p>
+      <p>Automated donor journeys triggered by giving history, engagement level, and time since last gift can personalize outreach at a scale no development team can match manually. Lapsed donor win-back sequences, major gift prospect identification, and year-end giving campaigns all run in the background while your development staff focuses on relationships that require a human touch.</p>
+      <p><strong>Grant management & reporting</strong></p>
+      <p>AI can maintain a grant calendar with automated deadline reminders, generate progress report drafts from program data and staff field notes, track expenditures against grant budgets in real time, and maintain a compliance documentation library that makes audits straightforward.</p>
+      <p><strong>Volunteer coordination & management</strong></p>
+      <p>AI can automate volunteer recruitment campaigns, match volunteer skills and availability to open opportunities, send shift reminders and confirmations, collect hours for reporting purposes, and trigger thank-you messages and milestone recognition automatically.</p>
+      <p><strong>Finance & compliance automation</strong></p>
+      <p>AI can automate budget-versus-actual reporting by program and funding source, track restricted fund balances in real time, generate board financial packages on a monthly schedule, and maintain the documentation trail that makes annual audits far less painful.</p>
+    </div>
+
+    <div class="ind-content" id="tab-finance">
+      <p><strong>Client onboarding & KYC automation</strong></p>
+      <p>AI can automate the entire onboarding sequence: sending structured digital intake packets, extracting and validating information from uploaded documents, flagging incomplete or inconsistent submissions for human review, and routing verified clients through to account activation without manual data entry at each step.</p>
+      <p><strong>Lead nurture & prospect communication</strong></p>
+      <p>AI can automate prospect nurture sequences triggered by inquiry type, product interest, and life stage signals — closing the follow-up gaps that cause warm leads to go cold and ultimately choose a competitor who stayed in touch.</p>
+      <p><strong>Compliance monitoring & documentation</strong></p>
+      <p>AI can automate compliance documentation generation at the point of client interaction, flag communications that may require additional documentation, monitor for regulatory deadline compliance, and maintain searchable archives of all client communications.</p>
+      <p><strong>Insurance policy management & renewals</strong></p>
+      <p>AI can monitor the entire book of business for upcoming renewals, trigger automated outreach campaigns at 90, 60, and 30 days before expiration, generate renewal quotes from carrier systems, and escalate unresponsive clients to an agent before the renewal window closes.</p>
+      <p><strong>Portfolio monitoring & client alerts</strong></p>
+      <p>AI can monitor client portfolios against defined parameters, generate personalized alert messages when a portfolio drifts significantly from its target allocation, and trigger an advisor notification when a client's situation warrants a personal call.</p>
+      <p><strong>Accounts payable & back-office operations</strong></p>
+      <p>Automated invoice matching against contracts, approval routing workflows, commission calculation from production data, and expense categorization fed directly into accounting software reduce back-office headcount requirements and eliminate manual reconciliation errors.</p>
+    </div>
 
   </div>
 </section>
@@ -361,7 +339,7 @@
       </div>
       <div class="cdetail">
         <svg viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
-        <span><a href="mailto:hello@economyaiagency.com">hello@economyaiagency.com</a></span>
+        <span><a href="/cdn-cgi/l/email-protection#0a626f6666654a6f6965646567736b636b6d6f64697324696567"><span class="__cf_email__" data-cfemail="5139343d3d3e1134323e3f3e3c2830383036343f32287f323e3c">[email&#160;protected]</span></a></span>
       </div>
       <div class="cdetail">
         <svg viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12 19.79 19.79 0 0 1 1.63 3.36 2 2 0 0 1 3.6 1.18h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.72a16 16 0 0 0 6 6l.91-.91a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 21.73 16z"/></svg>
@@ -415,6 +393,16 @@
       }
     });
   }, { threshold: 0.08 });
+
+
+  document.querySelectorAll('.ind-tab').forEach(btn => {
+    btn.addEventListener('click', () => {
+      document.querySelectorAll('.ind-tab').forEach(b => b.classList.remove('active'));
+      document.querySelectorAll('.ind-content').forEach(c => c.classList.remove('active'));
+      btn.classList.add('active');
+      document.getElementById('tab-' + btn.dataset.tab).classList.add('active');
+    });
+  });
 
   document.querySelectorAll('.svc-card, .step, .tcard').forEach((el, i) => {
     el.style.opacity = '0';
