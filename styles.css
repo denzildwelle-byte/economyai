@@ -164,6 +164,7 @@ details[open] summary::after { content: '−'; }
 .details-body p strong { color: var(--white); font-weight: 600; }
 
 /* ── TESTIMONIALS ── */
+#examples { background: var(--bg); }
 .t-grid { display: grid; grid-template-columns: repeat(auto-fit,minmax(17.5rem,1fr)); gap: 1.125em; margin-top: 3.25em; }
 .tcard { background: var(--bg3); border: 0.03125em solid var(--border); border-radius: 0.875em; padding: 1.75em; transition: border-color 0.2s; }
 .tcard:hover { border-color: rgba(240,165,0,0.2); }
@@ -337,4 +338,439 @@ footer p { font-size: 0.75em; color: var(--muted); font-weight: 300; }
   .left-panel { padding: 3em 6vw; border-right: none; border-bottom: 0.03125em solid var(--border); }
   .right-panel { padding: 3em 6vw; }
   .frow { grid-template-columns: 1fr; }
+}
+
+/* ── PRICING TIERS ── */
+.pricing-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(20rem, 1fr));
+  gap: 1.5em;
+  margin-top: 3.25em;
+}
+
+.price-card {
+  background: var(--bg3);
+  border: 0.03125em solid var(--border);
+  border-radius: 1em;
+  padding: 2.25em 2em 2em;
+  position: relative;
+  transition: border-color 0.3s, transform 0.2s;
+}
+
+.price-card:hover {
+  border-color: var(--border2);
+  transform: translateY(-0.25em);
+}
+
+.price-card-featured {
+  border-color: var(--border2);
+  background: linear-gradient(180deg, rgba(240,165,0,0.04) 0%, var(--bg3) 100%);
+}
+
+.price-popular-badge {
+  position: absolute;
+  top: -0.75em;
+  left: 50%;
+  transform: translateX(-50%);
+  background: var(--gold);
+  color: #07090D;
+  font-size: 0.6875em;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  padding: 0.375em 1em;
+  border-radius: 6.25em;
+}
+
+.price-tier-badge {
+  font-size: 0.6875em;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--gold);
+  font-weight: 400;
+  margin-bottom: 1em;
+}
+
+.price-amount {
+  display: flex;
+  align-items: baseline;
+  gap: 0.25em;
+  margin-bottom: 0.875em;
+}
+
+.price-dollar {
+  font-family: var(--fh);
+  font-size: 1.375em;
+  font-weight: 700;
+  color: var(--muted);
+}
+
+.price-num {
+  font-family: var(--fh);
+  font-size: 3.5em;
+  font-weight: 800;
+  color: var(--white);
+  letter-spacing: -0.03em;
+  line-height: 1;
+}
+
+.price-period {
+  font-size: 0.8125em;
+  color: var(--muted);
+  font-weight: 300;
+}
+
+.price-desc {
+  font-size: 0.9375em;
+  color: var(--muted2);
+  font-weight: 300;
+  line-height: 1.6;
+  margin-bottom: 1.75em;
+  padding-bottom: 1.75em;
+  border-bottom: 0.03125em solid var(--border);
+}
+
+.price-includes {
+  margin-bottom: 1.75em;
+}
+
+.price-inc-label {
+  font-size: 0.6875em;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--muted);
+  font-weight: 400;
+  margin-bottom: 1em;
+}
+
+.price-features {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 0.875em;
+}
+
+.price-features li {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.75em;
+}
+
+.price-features svg {
+  width: 1em;
+  height: 1em;
+  stroke: var(--gold);
+  fill: none;
+  stroke-width: 2.5;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  flex-shrink: 0;
+  margin-top: 0.125em;
+}
+
+.price-features span {
+  font-size: 0.8125em;
+  color: var(--muted2);
+  font-weight: 300;
+  line-height: 1.55;
+}
+
+.price-features strong {
+  color: var(--white);
+  font-weight: 400;
+}
+
+.price-examples {
+  padding-top: 1.75em;
+  border-top: 0.03125em solid var(--border);
+}
+
+.price-ex-label {
+  font-size: 0.6875em;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--muted);
+  font-weight: 400;
+  margin-bottom: 0.75em;
+}
+
+.price-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5em;
+}
+
+.price-tags span {
+  font-size: 0.6875em;
+  color: var(--gold);
+  background: var(--gold-f);
+  border: 0.03125em solid var(--border2);
+  padding: 0.375em 0.875em;
+  border-radius: 6.25em;
+  font-weight: 300;
+  letter-spacing: 0.02em;
+}
+
+/* ── RETAINER CARDS ── */
+.retainer-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(18rem, 1fr));
+  gap: 1.5em;
+  margin-top: 3.25em;
+}
+
+.retainer-card {
+  background: var(--bg2);
+  border: 0.03125em solid var(--border);
+  border-radius: 1em;
+  padding: 2.25em 2em 2em;
+  position: relative;
+  transition: border-color 0.3s, transform 0.2s;
+}
+
+.retainer-card:hover {
+  border-color: var(--border2);
+  transform: translateY(-0.25em);
+}
+
+.retainer-card-featured {
+  border-color: var(--border2);
+  background: linear-gradient(180deg, rgba(240,165,0,0.04) 0%, var(--bg2) 100%);
+}
+
+.retainer-popular {
+  position: absolute;
+  top: -0.75em;
+  left: 50%;
+  transform: translateX(-50%);
+  background: var(--gold);
+  color: #07090D;
+  font-size: 0.6875em;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  padding: 0.375em 1em;
+  border-radius: 6.25em;
+}
+
+.retainer-tier {
+  font-size: 0.6875em;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--gold);
+  font-weight: 400;
+  margin-bottom: 1em;
+}
+
+.retainer-price {
+  display: flex;
+  align-items: baseline;
+  gap: 0.25em;
+  margin-bottom: 0.875em;
+  min-height: 3.5em;
+}
+
+.retainer-dollar {
+  font-family: var(--fh);
+  font-size: 1.375em;
+  font-weight: 700;
+  color: var(--muted);
+}
+
+.retainer-num {
+  font-family: var(--fh);
+  font-size: 3em;
+  font-weight: 800;
+  color: var(--white);
+  letter-spacing: -0.03em;
+  line-height: 1;
+}
+
+.retainer-period {
+  font-size: 0.8125em;
+  color: var(--muted);
+  font-weight: 300;
+}
+
+.retainer-custom {
+  font-family: var(--fh);
+  font-size: 1.5em;
+  font-weight: 700;
+  color: var(--gold);
+  letter-spacing: -0.02em;
+}
+
+.retainer-desc {
+  font-size: 0.9375em;
+  color: var(--muted2);
+  font-weight: 300;
+  line-height: 1.6;
+  margin-bottom: 1.75em;
+  padding-bottom: 1.75em;
+  border-bottom: 0.03125em solid var(--border);
+}
+
+.retainer-features {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 0.875em;
+  margin-bottom: 1.75em;
+}
+
+.retainer-features li {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.75em;
+}
+
+.retainer-features svg {
+  width: 1em;
+  height: 1em;
+  stroke: var(--gold);
+  fill: none;
+  stroke-width: 2.5;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  flex-shrink: 0;
+  margin-top: 0.125em;
+}
+
+.retainer-features span {
+  font-size: 0.8125em;
+  color: var(--muted2);
+  font-weight: 300;
+  line-height: 1.55;
+}
+
+.retainer-features strong {
+  color: var(--white);
+  font-weight: 400;
+}
+
+/* ── VALUE CARDS ── */
+.value-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr));
+  gap: 1.5em;
+  margin-top: 3.25em;
+}
+
+.value-card {
+  background: var(--bg3);
+  border: 0.03125em solid var(--border);
+  border-radius: 0.875em;
+  padding: 2em 1.75em;
+  transition: background 0.25s, border-color 0.25s;
+}
+
+.value-card:hover {
+  background: #141922;
+  border-color: var(--border2);
+}
+
+.value-icon {
+  width: 2.625em;
+  height: 2.625em;
+  border-radius: 0.5625em;
+  background: var(--gold-f);
+  border: 0.03125em solid var(--border2);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 1.125em;
+}
+
+.value-icon svg {
+  width: 1.1875em;
+  height: 1.1875em;
+  stroke: var(--gold);
+  fill: none;
+  stroke-width: 1.8;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.value-card h3 {
+  font-family: var(--fh);
+  font-size: 1.0625em;
+  font-weight: 700;
+  margin-bottom: 0.5625em;
+  letter-spacing: -0.01875em;
+}
+
+.value-card p {
+  font-size: 0.8125em;
+  font-weight: 300;
+  color: var(--muted2);
+  line-height: 1.65;
+}
+
+/* ── FAQ ── */
+.faq-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(20rem, 1fr));
+  gap: 1.5em;
+  margin-top: 3.25em;
+}
+
+.faq-item {
+  background: var(--bg2);
+  border: 0.03125em solid var(--border);
+  border-radius: 0.875em;
+  padding: 2em 1.875em;
+  transition: border-color 0.25s;
+}
+
+.faq-item:hover {
+  border-color: var(--border2);
+}
+
+.faq-item h3 {
+  font-family: var(--fh);
+  font-size: 1em;
+  font-weight: 700;
+  margin-bottom: 0.75em;
+  letter-spacing: -0.01875em;
+  color: var(--white);
+}
+
+.faq-item p {
+  font-size: 0.8125em;
+  font-weight: 300;
+  color: var(--muted2);
+  line-height: 1.65;
+}
+
+/* ── CTA BAND ── */
+.cta-band {
+  background: linear-gradient(135deg, rgba(240,165,0,0.08) 0%, rgba(240,165,0,0.02) 100%);
+  border-top: 0.03125em solid var(--border2);
+  border-bottom: 0.03125em solid var(--border2);
+  padding: 4.5em 5vw;
+  text-align: center;
+}
+
+.cta-band h2 {
+  margin: 0 auto 0.875em;
+}
+
+.cta-band .sec-sub {
+  margin: 0 auto 2em;
+}
+
+/* ── RESPONSIVE ── */
+@media (max-width: 48em) {
+  .pricing-grid {
+    grid-template-columns: 1fr;
+  }
+  .retainer-grid {
+    grid-template-columns: 1fr;
+  }
+  .value-grid {
+    grid-template-columns: 1fr;
+  }
+  .faq-grid {
+    grid-template-columns: 1fr;
+  }
 }
