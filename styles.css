@@ -121,7 +121,7 @@ section { padding: 6.25em 5vw; }
 .sec-tag { font-size: 0.6875em; letter-spacing: 0.16em; text-transform: uppercase; color: var(--gold); font-weight: 400; margin-bottom: 0.875em; }
 h2 { font-family: var(--fh); font-size: clamp(1.875rem, 4vw, 3.125rem); font-weight: 800; letter-spacing: -0.09375rem; line-height: 1.06; max-width: 50.75rem; }
 h2 em { font-style: normal; color: var(--gold); }
-.sec-sub { font-size: 1em; font-weight: 300; color: var(--muted2); max-width: 30rem; margin-top: 0.875em; line-height: 1.65; }
+.sec-sub { font-size: 1em; font-weight: 300; color: var(--muted2); max-width: 35rem; margin-top: 0.875em; line-height: 1.65; }
 
 /* ── SERVICES ── */
 #services { background: var(--bg2); }
@@ -180,9 +180,9 @@ details[open] summary::after { content: '−'; }
 .arole { font-size: 0.6875em; color: var(--muted); font-weight: 300; }
 
 /* ── CTA BAND ── */
-.cta-band { background: var(--bg2); padding: 5.625em 5vw; text-align: center; }
+.cta-band { background: var(--bg2); padding: 6.625em 5vw; text-align: center; }
 .cta-band h2 { max-width: 100%; margin: 0 auto 1.25em; }
-.cta-band .sec-sub { margin: 0 auto 2.25em; text-align: center; }
+.cta-band .sec-sub { margin: 0 auto 3.5em; text-align: center; }
 
 /* ── CONTACT ── */
 #contact { background: var(--bg); padding: 6.25em 5vw; }
