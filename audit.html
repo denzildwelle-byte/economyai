@@ -10,6 +10,7 @@
 
   gtag('config', 'AW-18091489026');
 </script>
+
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Book Your Free Process Audit · Economy AI</title>
@@ -175,5 +176,23 @@
     }
   });
 </script>
+
+<script>
+function gtag_report_conversion(url) {
+  var callback = function () {
+    if (typeof(url) != 'undefined') {
+      window.location = url;
+    }
+  };
+  gtag('event', 'conversion', {
+      'send_to': 'AW-18091489026/qpHaCI3O35wcEILu2LJD',
+      'transaction_id': '',
+      'event_callback': callback
+      // 'new_customer': true /* calculate dynamically, populate with true/false */,
+  });
+  return false;
+}
+</script>
+
 </body>
 </html>
