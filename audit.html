@@ -1,15 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=AW-18091489026"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
 
-  gtag('config', 'AW-18091489026');
-</script>
 
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -19,6 +11,15 @@
 <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;600;800&family=Space+Grotesk:wght@300;400;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="styles.css">
 <link rel="icon" type="image/png" href="logo_transparent.png">
+
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=AW-XXXXXXXXX"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'AW-18091489026');
+</script>
 <style>
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
@@ -138,7 +139,7 @@
           <label>What's eating your team's time?</label>
           <textarea name="message" placeholder="Describe the manual work you'd most like to eliminate..." required></textarea>
         </div>
-        <button type="submit" class="btn-primary" onclick="return gtag_report_conversion('https://economyaiagency.com/thank-you')">Book my free audit →</button>
+        <button type="submit" class="btn-primary">Book my free audit →</button>
         <p class="form-note">No spam, ever. We'll only contact you about your audit request.<br>Questions? Email <a href="mailto:hello@economyaiagency.com" style="color:var(--gold);text-decoration:none;" >hello@economyaiagency.com</a></p>
       </form>
     </div>
@@ -169,6 +170,7 @@
   document.getElementById('audit-form').addEventListener('submit', function(e) {
     const name = document.querySelector('[name="first_name"]').value.trim();
     if (name) {
+      gtag_report_conversion();
       setTimeout(() => {
         document.getElementById('form-wrap').style.display = 'none';
         document.getElementById('success').style.display = 'block';
@@ -178,20 +180,18 @@
 </script>
 
 <script>
-function gtag_report_conversion(url) {
-  var callback = function () {
-    if (typeof(url) != 'undefined') {
-      window.location = url;
-    }
-  };
-  gtag('event', 'conversion', {
+  function gtag_report_conversion(url) {
+    var callback = function () {
+      if (typeof(url) != 'undefined') {
+        window.location = url;
+      }
+    };
+    gtag('event', 'conversion', {
       'send_to': 'AW-18091489026/qpHaCI3O35wcEILu2LJD',
-      'transaction_id': '',
       'event_callback': callback
-      // 'new_customer': true /* calculate dynamically, populate with true/false */,
-  });
-  return false;
-}
+    });
+    return false;
+  }
 </script>
 
 </body>
