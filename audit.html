@@ -170,12 +170,14 @@
   document.getElementById('audit-form').addEventListener('submit', function(e) {
     const name = document.querySelector('[name="first_name"]').value.trim();
     if (name) {
-      // gtag_report_conversion();
+      
       setTimeout(() => {
         document.getElementById('form-wrap').style.display = 'none';
         document.getElementById('success').style.display = 'block';
       }, 100);
+      //gtag_report_conversion();
     }
+    
   });
 </script>
 
