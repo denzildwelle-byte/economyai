@@ -6,6 +6,21 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Book Your Free Process Audit · Economy AI</title>
+<meta name="description" content="Book a free 30-minute process audit with Economy AI. We'll map your biggest time drains, show you what can be automated, and give you a clear ROI estimate — no commitment.">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://www.economyaiagency.com/audit.html">
+<!-- Open Graph -->
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://www.economyaiagency.com/audit.html">
+<meta property="og:title" content="Book Your Free Process Audit · Economy AI">
+<meta property="og:description" content="Free 30-minute audit. We'll map your workflows, find the highest-ROI bottlenecks, and give you a clear automation roadmap — no commitment.">
+<meta property="og:image" content="https://www.economyaiagency.com/logo_transparent.png">
+<meta property="og:site_name" content="Economy AI">
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Book Your Free Process Audit · Economy AI">
+<meta name="twitter:description" content="Free 30-minute audit. We'll map your workflows, find the highest-ROI bottlenecks, and give you a clear automation roadmap — no commitment.">
+<meta name="twitter:image" content="https://www.economyaiagency.com/logo_transparent.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;600;800&family=Space+Grotesk:wght@300;400;700&display=swap" rel="stylesheet">
@@ -13,7 +28,7 @@
 <link rel="icon" type="image/png" href="logo_transparent.png">
 
 <!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=AW-XXXXXXXXX"></script>
+<script async src="https://www.googletagmanager.com/gtag/js?id=AW-18091489026"></script>
 <script>
   window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}
@@ -30,8 +45,8 @@
 
 <nav>
   <a href="index.html" class="logo-wrap">
-    <div style="width:2.25em;height:2.25em;flex-shrink:0;display:flex;align-items:center;justify-content:center;">
-      <img src="logo_transparent.png" alt="Economy AI" style="width:6em;height:2em;"">
+    <div class="logo-mark">
+      <img src="logo_transparent.png" alt="Economy AI" style="width:6em;height:2em;">
     </div>
     <div class="logo-text">
       <span class="logo-top">Economy AI</span>
@@ -144,14 +159,7 @@
       </form>
     </div>
 
-    <div class="success-state" id="success">
-      <div class="success-icon">
-        <svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
-      </div>
-      <h2>You're all set!</h2>
-      <p>We've received your request and will be in touch within one business day to schedule your free audit.</p>
-      <a href="index.html" class="btn-ghost">← Back to site</a>
-    </div>
+
   </div>
 
 </div>
@@ -168,31 +176,33 @@
 
 <script>
   document.getElementById('audit-form').addEventListener('submit', function(e) {
-    const name = document.querySelector('[name="first_name"]').value.trim();
-    if (name) {
-      
-      setTimeout(() => {
-        document.getElementById('form-wrap').style.display = 'none';
-        document.getElementById('success').style.display = 'block';
-      }, 100);
-      //gtag_report_conversion();
-    }
-    
+    e.preventDefault();
+    const form = this;
+
+    // Fire the Google Ads conversion, then submit the form via fetch (Netlify AJAX)
+    gtag_report_conversion();
+
+    const data = new FormData(form);
+    fetch('/', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+      body: new URLSearchParams(data).toString()
+    })
+    .then(() => {
+      window.location.href = '/thank-you.html';
+    })
+    .catch(() => {
+      // Fallback: let the form submit normally so no lead is lost
+      form.submit();
+    });
   });
 </script>
 
 <script>
-  function gtag_report_conversion(url) {
-    var callback = function () {
-      if (typeof(url) != 'undefined') {
-        window.location = url;
-      }
-    };
+  function gtag_report_conversion() {
     gtag('event', 'conversion', {
-      'send_to': 'AW-18091489026/qpHaCI3O35wcEILu2LJD',
-      'event_callback': callback
+      'send_to': 'AW-18091489026/qpHaCI3O35wcEILu2LJD'
     });
-    return false;
   }
 </script>
 
