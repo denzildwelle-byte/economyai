@@ -2,124 +2,352 @@
 <html lang="en">
 <head>
   <!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=AW-18091489026"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
+  <script async src="https://www.googletagmanager.com/gtag/js?id=AW-18091489026"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'AW-18091489026');
+    // Fire conversion on thank-you page load as backup
+    gtag('event', 'conversion', { 'send_to': 'AW-18091489026/qpHaCI3O35wcEILu2LJD' });
+  </script>
 
-  gtag('config', 'AW-18091489026');
-</script>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Thank You - Economy AI</title>
-  <link rel="stylesheet" href="styles.css">
+  <title>You're Booked · Economy AI</title>
+  <meta name="robots" content="noindex, nofollow">
+  <link rel="icon" type="image/png" href="logo_transparent.png">
+
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;600;700;800&family=Space+Grotesk:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;600;800&family=Space+Grotesk:wght@300;400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+
+  <!-- Calendly -->
+  <link href="https://assets.calendly.com/assets/external/widget.css" rel="stylesheet">
+
+  <style>
+    /* ── CONFIRMATION HERO ── */
+    .confirm-hero {
+      min-height: 38vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      padding: 6em 5vw 3em;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .confirm-hero-bg {
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+    }
+
+    .confirm-hero-bg svg {
+      width: 100%;
+      height: 100%;
+      opacity: 0.5;
+    }
+
+    .check-ring {
+      width: 4.5em;
+      height: 4.5em;
+      border-radius: 50%;
+      border: 0.125em solid var(--gold);
+      background: var(--gold-f);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 1.5em;
+      animation: popIn 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275) both;
+      position: relative;
+      z-index: 1;
+    }
+
+    .check-ring svg {
+      width: 1.75em;
+      height: 1.75em;
+      stroke: var(--gold);
+      fill: none;
+      stroke-width: 2.5;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+      stroke-dasharray: 30;
+      stroke-dashoffset: 0;
+      animation: drawCheck 0.4s 0.3s ease both;
+    }
+
+    @keyframes popIn {
+      from { opacity: 0; transform: scale(0.6); }
+      to   { opacity: 1; transform: scale(1); }
+    }
+
+    @keyframes drawCheck {
+      from { stroke-dashoffset: 30; opacity: 0; }
+      to   { stroke-dashoffset: 0;  opacity: 1; }
+    }
+
+    .confirm-hero .sec-tag {
+      position: relative;
+      z-index: 1;
+      animation: fadeUp 0.5s 0.1s ease both;
+    }
+
+    .confirm-hero h1 {
+      position: relative;
+      z-index: 1;
+      font-family: var(--fh);
+      font-size: clamp(2rem, 5vw, 3.75rem);
+      font-weight: 800;
+      letter-spacing: -0.09375rem;
+      line-height: 1.05;
+      margin-bottom: 0.6em;
+      animation: fadeUp 0.5s 0.15s ease both;
+    }
+
+    .confirm-hero h1 em { font-style: normal; color: var(--gold); }
+
+    .confirm-hero p {
+      font-size: clamp(0.9375rem, 1.6vw, 1.125rem);
+      font-weight: 300;
+      color: var(--muted2);
+      max-width: 30rem;
+      line-height: 1.65;
+      position: relative;
+      z-index: 1;
+      animation: fadeUp 0.5s 0.2s ease both;
+    }
+
+    /* ── NEXT STEPS STRIP ── */
+    .next-strip {
+      background: var(--bg2);
+      border-top: 0.03125em solid var(--border);
+      border-bottom: 0.03125em solid var(--border);
+      padding: 3em 5vw;
+      display: flex;
+      justify-content: center;
+      gap: 0;
+    }
+
+    .next-step {
+      display: flex;
+      align-items: flex-start;
+      gap: 1em;
+      padding: 0 2.5em;
+      flex: 1;
+      max-width: 18rem;
+      position: relative;
+    }
+
+    .next-step + .next-step::before {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 0.25em;
+      height: 2em;
+      width: 0.03125em;
+      background: var(--border);
+    }
+
+    .next-num {
+      width: 2em;
+      height: 2em;
+      border-radius: 50%;
+      background: var(--gold-f);
+      border: 0.03125em solid var(--border2);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: var(--fh);
+      font-size: 0.75em;
+      font-weight: 800;
+      color: var(--gold);
+      flex-shrink: 0;
+      margin-top: 0.125em;
+    }
+
+    .next-text strong {
+      display: block;
+      font-family: var(--fh);
+      font-size: 0.9375em;
+      font-weight: 700;
+      color: var(--white);
+      margin-bottom: 0.25em;
+      letter-spacing: -0.01em;
+    }
+
+    .next-text span {
+      font-size: 0.8125em;
+      color: var(--muted2);
+      font-weight: 300;
+      line-height: 1.55;
+    }
+
+    /* ── CALENDLY SECTION ── */
+    .calendly-section {
+      padding: 4.5em 5vw 5em;
+      background: var(--bg);
+    }
+
+    .calendly-section .sec-tag { margin-bottom: 0.5em; }
+
+    .calendly-section h2 {
+      font-family: var(--fh);
+      font-size: clamp(1.75rem, 3.5vw, 2.75rem);
+      font-weight: 800;
+      letter-spacing: -0.09375rem;
+      line-height: 1.06;
+      margin-bottom: 0.5em;
+    }
+
+    .calendly-section h2 em { font-style: normal; color: var(--gold); }
+
+    .calendly-section .sec-sub {
+      margin-bottom: 2.5em;
+    }
+
+    .calendly-wrap {
+      border-radius: 1em;
+      overflow: hidden;
+      border: 0.03125em solid var(--border);
+      background: var(--bg2);
+    }
+
+    /* Force Calendly widget background to match */
+    .calendly-inline-widget {
+      min-width: 320px;
+      height: 700px;
+    }
+
+    /* ── SKIP LINK ── */
+    .skip-wrap {
+      text-align: center;
+      padding: 1.5em 5vw 3em;
+      background: var(--bg);
+      border-top: 0.03125em solid var(--border);
+    }
+
+    .skip-wrap p {
+      font-size: 0.8125em;
+      color: var(--muted);
+      font-weight: 300;
+      margin-bottom: 1em;
+    }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 48em) {
+      .next-strip {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 1.75em;
+        padding: 2.5em 5vw;
+      }
+
+      .next-step + .next-step::before { display: none; }
+      .next-step { padding: 0; max-width: 100%; }
+
+      .calendly-inline-widget { height: 900px; }
+    }
+  </style>
 </head>
 <body>
 
-  <!-- NAV -->
-  <nav>
-    <a href="index.html" class="logo-wrap">
-      <div class="logo-mark">
-     <div class="logo-mark">
+<!-- NAV -->
+<nav>
+  <a href="index.html" class="logo-wrap" aria-label="Economy AI — Home">
+    <div class="logo-mark">
       <img src="logo_transparent.png" alt="Economy AI" style="width:6em;height:2em;">
     </div>
+    <div class="logo-text">
+      <span class="logo-top">Economy AI</span>
+      <span class="logo-bottom">Automation Agency · Fresno, CA</span>
+    </div>
+  </a>
+  <a href="index.html" class="nav-back" style="display:flex;align-items:center;gap:0.375em;font-size:0.8125em;font-weight:300;color:var(--muted);text-decoration:none;transition:color 0.2s;">
+    <svg viewBox="0 0 24 24" style="width:1em;height:1em;stroke:currentColor;fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;"><polyline points="15 18 9 12 15 6"/></svg>
+    Back to site
+  </a>
+</nav>
+
+<!-- CONFIRMATION HERO -->
+<div class="confirm-hero">
+  <div class="confirm-hero-bg" aria-hidden="true">
+    <svg viewBox="0 0 1440 500" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <radialGradient id="cg" cx="50%" cy="50%" r="50%">
+          <stop offset="0%" stop-color="#F0A500" stop-opacity="0.08"/>
+          <stop offset="100%" stop-color="#F0A500" stop-opacity="0"/>
+        </radialGradient>
+      </defs>
+      <ellipse cx="720" cy="250" rx="550" ry="300" fill="url(#cg)"/>
+      <g stroke="#F0A500" stroke-opacity="0.04" stroke-width="0.5">
+        <line x1="0" y1="0" x2="0" y2="500"/><line x1="180" y1="0" x2="180" y2="500"/>
+        <line x1="360" y1="0" x2="360" y2="500"/><line x1="540" y1="0" x2="540" y2="500"/>
+        <line x1="720" y1="0" x2="720" y2="500"/><line x1="900" y1="0" x2="900" y2="500"/>
+        <line x1="1080" y1="0" x2="1080" y2="500"/><line x1="1260" y1="0" x2="1260" y2="500"/>
+        <line x1="1440" y1="0" x2="1440" y2="500"/>
+        <line x1="0" y1="0" x2="1440" y2="0"/><line x1="0" y1="125" x2="1440" y2="125"/>
+        <line x1="0" y1="250" x2="1440" y2="250"/><line x1="0" y1="375" x2="1440" y2="375"/>
+        <line x1="0" y1="500" x2="1440" y2="500"/>
+      </g>
+    </svg>
+  </div>
+
+  <div class="check-ring" aria-hidden="true">
+    <svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
+  </div>
+  <div class="sec-tag">Request received</div>
+  <h1>You're all set.<br><em>Let's pick a time.</em></h1>
+  <p>Your audit request is in. Book your free 30-minute session below and we'll come prepared with ideas specific to your business.</p>
+</div>
+
+<!-- CALENDLY EMBED -->
+<section class="calendly-section">
+  <div class="sec-tag">Schedule your audit</div>
+  <h2>Book your free <em>30-minute session</em></h2>
+  <p class="sec-sub">All times shown in your local timezone. No commitment — the audit is yours to keep regardless.</p>
+
+  <div class="calendly-wrap">
+    <div
+      class="calendly-inline-widget"
+      data-url="https://calendly.com/denzil-economyaiagency/30min?hide_gdpr_banner=1&background_color=0C0F15&text_color=EDF1F7&primary_color=F0A500"
+    ></div>
+  </div>
+</section>
+
+<!-- SKIP / FALLBACK -->
+<div class="skip-wrap">
+  <p>Can't find a time that works? We'll reach out within one business day to schedule manually.</p>
+  <a href="index.html" class="btn-ghost">← Back to site</a>
+</div>
+
+<!-- FOOTER -->
+<footer role="contentinfo">
+  <div>
+    <a href="index.html" class="logo-wrap" style="margin-bottom:0.375em;" aria-label="Economy AI — Home">
+      <div class="logo-mark">
+        <img src="logo_transparent.png" alt="Economy AI Automation Agency" style="width:6em;height:2em;">
       </div>
       <div class="logo-text">
-        <span class="logo-top">Economy</span>
-        <span class="logo-bottom">AI Agency</span>
+        <span class="logo-top" style="font-size:0.8125em;">Economy AI</span>
+        <span class="logo-bottom">Automation Agency</span>
       </div>
     </a>
-    <ul class="nav-links">
-      <li><a href="index.html#services">Services</a></li>
-      <li><a href="index.html#how-it-works">How It Works</a></li>
-      <li><a href="index.html#contact">Contact</a></li>
-    </ul>
+    <p style="margin-top:0.5em;">© 2026 Economy AI Automation Agency · Fresno, California</p>
+  </div>
+  <nav class="flinks" aria-label="Footer navigation">
+    <a href="index.html#services">Services</a>
+    <a href="index.html#how">Process</a>
+    <a href="index.html#industries">Industries</a>
+    <a href="index.html#contact">Contact</a>
+    <a href="audit.html">Free audit</a>
   </nav>
+</footer>
 
-  <!-- THANK YOU HERO -->
-  <section class="hero">
-
-    <div class="hero-badge">
-      ✓ Message Received
-    </div>
-
-    <h1>Thank you for <em>reaching out</em></h1>
-
-    <p class="hero-sub">
-      We've received your message and our team will get back to you within 24 hours. 
-      We're excited to learn more about your business and explore how AI can help you achieve your goals.
-    </p>
-
-    <div class="hero-actions">
-      <a href="index.html" class="btn-primary">Back to Home</a>
-      </div>
-
-    <div class="hero-stats">
-      <div>
-        <div class="stat-num"><span>&lt;</span>24h</div>
-        <div class="stat-label">Response Time</div>
-      </div>
-      <div>
-        <div class="stat-num">100<span>%</span></div>
-        <div class="stat-label">Personalized Approach</div>
-      </div>
-      <div>
-        <div class="stat-num">Free</div>
-        <div class="stat-label">Initial Consultation</div>
-      </div>
-    </div>
-  </section>
-
-  <!-- WHAT'S NEXT SECTION -->
-  <section id="next-steps" style="background: var(--bg2);">
-    <div class="sec-tag">What Happens Next</div>
-    <h2>Here's what to <em>expect</em></h2>
-    <p class="sec-sub">We've streamlined our onboarding process to get you results as quickly as possible.</p>
-
-    <div class="steps">
-      <div class="step">
-        <div class="step-num">1</div>
-        <h3>Discovery Call</h3>
-        <p>We'll schedule a 30-minute call to understand your business challenges, goals, and current processes.</p>
-      </div>
-
-      <div class="step">
-        <div class="step-num">2</div>
-        <h3>Custom Proposal</h3>
-        <p>Within 72 hours, receive a tailored AI implementation plan with clear timelines and ROI projections.</p>
-      </div>
-
-      <div class="step">
-        <div class="step-num">3</div>
-        <h3>Quick Start</h3>
-        <p>Once approved, we begin implementation immediately, delivering your first AI solution.</p>
-      </div>
-    </div>
-  </section>
-
-  <!-- CTA BAND -->
-  <section class="cta-band">
-    <h2>In the meantime, <em>explore</em> our resources</h2>
-    <p class="sec-sub">Learn more about how AI is transforming businesses like yours.</p>
-    <div style="display: flex; gap: 0.875em; justify-content: center; flex-wrap: wrap; margin-top: 2em;">
-      <a href="index.html#services" class="btn-primary">View Services</a>
-      <a href="index.html#industries" class="btn-ghost">See Industries</a>
-    </div>
-  </section>
-
-  <!-- FOOTER -->
-  <footer>
-    <p>&copy; 2026 Economy AI. All rights reserved.</p>
-    <div class="flinks">
-      <a href="index.html#services">Services</a>
-      <a href="index.html#how-it-works">How It Works</a>
-      <a href="index.html#contact">Contact</a>
-    </div>
-  </footer>
+<script src="https://assets.calendly.com/assets/external/widget.js"></script>
 
 </body>
 </html>
