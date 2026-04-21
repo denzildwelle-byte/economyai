@@ -994,3 +994,205 @@ footer p { font-size: 0.75em; color: var(--muted); font-weight: 300; }
 
   .calendly-inline-widget { height: 900px; }
 }
+
+/* ── REAL ESTATE LANDING PAGE ── */
+
+/* Pain points grid */
+.pain-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(16rem, 1fr));
+  gap: 1px;
+  margin-top: 3.25em;
+  border: 0.03125em solid var(--border);
+  border-radius: 1em;
+  overflow: hidden;
+}
+
+.pain-card {
+  background: var(--bg3);
+  padding: 2em 1.875em;
+  transition: background 0.25s;
+  position: relative;
+}
+
+.pain-card:hover { background: #141922; }
+
+.pain-card::before {
+  content: '';
+  display: block;
+  width: 2em;
+  height: 0.1875em;
+  background: var(--gold);
+  border-radius: 1em;
+  margin-bottom: 1.125em;
+  opacity: 0.6;
+}
+
+.pain-card h3 {
+  font-family: var(--fh);
+  font-size: 1em;
+  font-weight: 700;
+  color: var(--white);
+  margin-bottom: 0.5em;
+  letter-spacing: -0.01em;
+}
+
+.pain-card p {
+  font-size: 0.8125em;
+  font-weight: 300;
+  color: var(--muted2);
+  line-height: 1.65;
+}
+
+/* Use cases list */
+.usecase-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1px;
+  margin-top: 3.25em;
+  border: 0.03125em solid var(--border);
+  border-radius: 1em;
+  overflow: hidden;
+}
+
+.usecase-item {
+  background: var(--bg3);
+  padding: 2em 2.25em;
+  display: grid;
+  grid-template-columns: 2.5em 1fr;
+  gap: 1.25em;
+  align-items: flex-start;
+  transition: background 0.2s;
+}
+
+.usecase-item:hover { background: #141922; }
+
+.usecase-num {
+  font-family: var(--fh);
+  font-size: 1.5em;
+  font-weight: 800;
+  color: var(--gold);
+  opacity: 0.4;
+  line-height: 1.1;
+  letter-spacing: -0.03em;
+}
+
+.usecase-body h3 {
+  font-family: var(--fh);
+  font-size: 1.0625em;
+  font-weight: 700;
+  margin-bottom: 0.375em;
+  letter-spacing: -0.015em;
+}
+
+.usecase-body p {
+  font-size: 0.8125em;
+  font-weight: 300;
+  color: var(--muted2);
+  line-height: 1.65;
+}
+
+.usecase-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.375em;
+  font-size: 0.6875em;
+  color: var(--gold);
+  background: var(--gold-f);
+  border: 0.03125em solid var(--border2);
+  padding: 0.25em 0.75em;
+  border-radius: 6.25em;
+  font-weight: 400;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  margin-top: 0.75em;
+}
+
+/* ROI band */
+.roi-band {
+  background: var(--bg2);
+  border-top: 0.03125em solid var(--border2);
+  border-bottom: 0.03125em solid var(--border2);
+  padding: 4em 5vw;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 0;
+  text-align: center;
+}
+
+.roi-item {
+  padding: 1em 2em;
+  position: relative;
+}
+
+.roi-item + .roi-item::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 15%;
+  height: 70%;
+  width: 0.03125em;
+  background: var(--border2);
+}
+
+.roi-num {
+  font-family: var(--fh);
+  font-size: clamp(2.5rem, 5vw, 4rem);
+  font-weight: 800;
+  color: var(--white);
+  letter-spacing: -0.04em;
+  line-height: 1;
+}
+
+.roi-num span { color: var(--gold); }
+
+.roi-label {
+  font-size: 0.8125em;
+  color: var(--muted2);
+  font-weight: 300;
+  margin-top: 0.5em;
+  line-height: 1.4;
+}
+
+/* Proof / testimonial grid */
+.proof-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(17.5rem, 1fr));
+  gap: 1.125em;
+  margin-top: 3.25em;
+}
+
+.tcard::before {
+  content: '\201C';
+  font-family: var(--fh);
+  font-size: 4em;
+  font-weight: 800;
+  color: var(--gold);
+  opacity: 0.2;
+  line-height: 0.75;
+  display: block;
+  margin-bottom: 0.25em;
+}
+
+/* Breadcrumb */
+.breadcrumb {
+  list-style: none;
+  display: flex;
+  gap: 0.5em;
+  align-items: center;
+  font-size: 0.75em;
+  color: var(--muted);
+  font-weight: 300;
+  margin-bottom: 1.5em;
+}
+
+.breadcrumb a { color: var(--muted); text-decoration: none; transition: color 0.2s; }
+.breadcrumb a:hover { color: var(--white); }
+.breadcrumb li + li::before { content: '›'; opacity: 0.4; margin-right: 0.5em; }
+
+@media (max-width: 48em) {
+  .roi-band { grid-template-columns: 1fr; gap: 2em; }
+  .roi-item + .roi-item::before { display: none; }
+  .usecase-item { grid-template-columns: 1fr; }
+  .usecase-num { font-size: 1em; }
+}
