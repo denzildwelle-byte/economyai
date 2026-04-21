@@ -26,6 +26,8 @@
 <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;600;800&family=Space+Grotesk:wght@300;400;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="styles.css">
 <link rel="icon" type="image/png" href="logo_transparent.png">
+  <!-- Calendly -->
+  <link href="https://assets.calendly.com/assets/external/widget.css" rel="stylesheet">
 
 <!-- Google tag (gtag.js) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=AW-18102697307"></script>
@@ -44,8 +46,8 @@
 
 <style>
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-
-
+.calendly-inline-widget { min-width: 300px; height: 660px; }
+@media (max-width: 51.25em) { .calendly-inline-widget { height: 800px; } }
 </style>
 </head>
 <body>
@@ -115,58 +117,17 @@
     </div>
   </div>
 
-  <!-- RIGHT: form -->
-  <div class="right-panel">
-    <div id="form-wrap">
-      <div class="form-title">Tell us about your business</div>
-      <div class="form-subtitle">We'll reach out within one business day to schedule your audit.</div>
-
-      <form name="audit-request" method="POST" data-netlify="true" action="/thank-you.html" id="audit-form">
-        <div class="frow">
-          <div class="fg"><label>First name</label><input type="text" name="first_name" placeholder="" required></div>
-          <div class="fg"><label>Last name</label><input type="text" name="last_name" placeholder="" required></div>
-        </div>
-        <div class="fg"><label>Business email</label><input type="email" name="email" placeholder="" required></div>
-        <div class="fg"><label>Phone number</label><input type="tel" name="phone" placeholder=""></div>
-        <div class="fg"><label>Company name</label><input type="text" name="company" placeholder="" required></div>
-        <div class="fg">
-          <label>Industry</label>
-          <select name="industry" required>
-            <option value="" disabled selected>Select your industry</option>
-            <option>Agriculture & agribusiness</option>
-            <option>Healthcare & medical</option>
-            <option>Real estate & property management</option>
-            <option>Legal & professional services</option>
-            <option>Retail & e-commerce</option>
-            <option>Construction & trades</option>
-            <option>Logistics & distribution</option>
-            <option>Restaurants & hospitality</option>
-            <option>Education & nonprofits</option>
-            <option>Financial services</option>
-            <option>Other</option>
-          </select>
-        </div>
-        <div class="fg">
-          <label>How many employees?</label>
-          <select name="employees">
-            <option value="" disabled selected>Select a range</option>
-            <option>1–5</option>
-            <option>6–20</option>
-            <option>21–50</option>
-            <option>51–200</option>
-            <option>200+</option>
-          </select>
-        </div>
-        <div class="fg">
-          <label>What's eating your team's time?</label>
-          <textarea name="message" placeholder="Describe the manual work you'd most like to eliminate..." required></textarea>
-        </div>
-        <button type="submit" class="btn-primary">Book my free audit →</button>
-        <p class="form-note">No spam, ever. We'll only contact you about your audit request.<br>Questions? Email <a href="mailto:hello@economyaiagency.com" style="color:var(--gold);text-decoration:none;" >hello@economyaiagency.com</a></p>
-      </form>
+  <!-- RIGHT: Calendly booking widget -->
+  <div class="right-panel" style="padding: 2.5em 4vw; overflow-y: auto;">
+    <div class="form-title">Pick a time that works for you</div>
+    <div class="form-subtitle">Choose any open slot below — we'll come prepared with ideas specific to your business.</div>
+    <div class="calendly-wrap" style="margin-top: 1.5em;">
+      <div
+        class="calendly-inline-widget"
+        data-url="https://calendly.com/denzil-economyaiagency/30min?hide_gdpr_banner=1&background_color=07090D&text_color=EDF1F7&primary_color=F0A500"
+      ></div>
     </div>
-
-
+    <p class="form-note" style="margin-top: 1em;">Questions? Email <a href="mailto:hello@economyaiagency.com" style="color:var(--gold);text-decoration:none;">hello@economyaiagency.com</a></p>
   </div>
 
 </div>
@@ -181,31 +142,6 @@
   </div>
 </footer>
 
-<script>
-  document.getElementById('audit-form').addEventListener('submit', function(e) {
-    e.preventDefault();
-    const form = this;
-
-    // Fire the Google Ads conversion, then submit the form via fetch (Netlify AJAX)
-    //gtag_report_conversion();
-
-    const data = new FormData(form);
-    fetch('/', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-      body: new URLSearchParams(data).toString()
-    })
-    .then(() => {
-      window.location.href = '/thank-you.html';
-    })
-    .catch(() => {
-      // Fallback: let the form submit normally so no lead is lost
-      form.submit();
-    });
-  });
-</script>
-
-
-
+<script src="https://assets.calendly.com/assets/external/widget.js"></script>
 </body>
 </html>
