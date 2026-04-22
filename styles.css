@@ -1196,3 +1196,68 @@ footer p { font-size: 0.75em; color: var(--muted); font-weight: 300; }
   .usecase-item { grid-template-columns: 1fr; }
   .usecase-num { font-size: 1em; }
 }
+
+/* ── SOCIAL LINKS ── */
+.social-links {
+  display: flex;
+  gap: 0.75em;
+  align-items: center;
+  margin-top: 1em;
+}
+
+.social-link {
+  width: 2.25em;
+  height: 2.25em;
+  border-radius: 0.5em;
+  background: var(--gold-f);
+  border: 0.03125em solid var(--border2);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  transition: background 0.2s, border-color 0.2s, transform 0.15s;
+  flex-shrink: 0;
+}
+
+.social-link:hover {
+  background: var(--gold-f2);
+  border-color: var(--gold);
+  transform: translateY(-0.125em);
+}
+
+.social-link svg {
+  width: 1em;
+  height: 1em;
+  fill: var(--gold);
+  flex-shrink: 0;
+}
+
+/* Footer social row */
+.footer-social {
+  display: flex;
+  align-items: center;
+  gap: 0.5em;
+  margin-top: 0.75em;
+}
+
+.footer-social .social-link {
+  width: 1.875em;
+  height: 1.875em;
+  border-radius: 0.375em;
+}
+
+.footer-social .social-link svg {
+  width: 0.875em;
+  height: 0.875em;
+}
+
+/* Contact section social label */
+.social-label {
+  font-size: 0.6875em;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--muted);
+  font-weight: 400;
+  margin-top: 1.5em;
+  margin-bottom: 0.625em;
+}
