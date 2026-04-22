@@ -1,0 +1,51 @@
+exports.handler = async function (event) {
+  const payload = JSON.parse(event.body).payload;
+
+  if (payload.form_name !== "audit-request") return { statusCode: 200 };
+
+  const { first_name, email } = payload.data;
+
+  const emailBody = `Hi ${first_name},
+
+Really enjoyed our conversation earlier — you gave me a clear picture of what's going on and I'm already thinking through what we'd build for you.
+
+Before our call, here are four quick things to have in the back of your mind. Nothing to prepare formally — just worth thinking about:
+
+1. Which process costs you the most time right now? Think about what your team repeats most often. Which one, if it disappeared tomorrow, would make the biggest difference?
+
+2. What does your current tech stack look like? A rough list is fine — CRM, project management, invoicing, comms tools. We build around what you already use.
+
+3. What does success look like at 90 days? If we've done our job well, what's different about how your business operates? Hours saved, errors eliminated, team capacity freed up.
+
+4. What's your biggest hesitation? Honest answer appreciated. Budget, timeline, trust — whatever's on your mind. Knowing upfront means we can address it directly.
+
+On the call I'll walk you through exactly what we'd automate, how it works, the timeline, and a real ROI estimate with actual numbers. You'll have everything you need to make a decision by the end — no pressure either way.
+
+Talk soon.
+
+Economy AI Team
+Economy AI · Fresno, CA
+hello@economyaiagency.com`;
+
+  const res = await fetch("https://api.resend.com/emails", {
+    method: "POST",
+    headers: {
+      "Authorization": `Bearer ${process.env.RESEND_API_KEY}`,
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify({
+      from: "Economy AI Team <hello@economyaiagency.com>",
+      to: email,
+      subject: "Before our call — a few things to think about",
+      text: emailBody,
+    }),
+  });
+
+  if (!res.ok) {
+    const error = await res.text();
+    console.error("Resend error:", error);
+    return { statusCode: 500, body: error };
+  }
+
+  return { statusCode: 200 };
+};
