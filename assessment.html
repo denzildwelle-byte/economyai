@@ -1,0 +1,380 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>How Much Time Are You Losing? · Economy AI</title>
+<meta name="description" content="Take our 60-second assessment to find out how much time your business is losing to manual work — and what it's costing you. Get your personalized automation score.">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://www.economyaiagency.com/assessment.html">
+<meta property="og:title" content="How Much Time Are You Losing? · Economy AI">
+<meta property="og:description" content="60-second assessment. Find out how much time your business is losing to manual work and what AI automation could save you.">
+<meta property="og:image" content="https://www.economyaiagency.com/logo_transparent.png">
+<meta property="og:url" content="https://www.economyaiagency.com/assessment.html">
+<script async src="https://www.googletagmanager.com/gtag/js?id=AW-18102697307"></script>
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','AW-18102697307');</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;600;800&family=Space+Grotesk:wght@300;400;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+<link rel="icon" type="image/x-icon" href="favicon.ico">
+<link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png">
+<link rel="apple-touch-icon" sizes="192x192" href="favicon-192.png">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+.assess-hero{min-height:calc(100vh - 4.25em);display:flex;align-items:center;justify-content:center;padding:5em 5vw;text-align:center;position:relative;}
+.assess-hero-inner{max-width:44rem;position:relative;z-index:1;}
+.assess-hero h1{margin-bottom:1em;}
+.assess-hero .hero-sub{margin:0 auto 2.25em;}
+.assess-meta{margin-top:1em;font-size:0.8125em;color:var(--muted);font-weight:300;}
+.assess-meta span{color:var(--gold);}
+.quiz-wrap{display:none;grid-template-columns:1fr 1fr;min-height:calc(100vh - 4.25em);}
+.quiz-wrap.active{display:grid;}
+.quiz-left{background:var(--bg2);padding:4em 5vw;border-right:0.03125em solid var(--border);position:sticky;top:4.25em;height:calc(100vh - 4.25em);overflow-y:auto;display:flex;flex-direction:column;}
+.quiz-right{padding:4em 5vw;background:var(--bg);overflow-y:auto;}
+.progress-wrap{display:flex;align-items:center;gap:0.875em;margin-bottom:2.5em;}
+.progress-track{flex:1;height:0.1875em;background:var(--border);border-radius:100em;overflow:hidden;}
+.progress-fill{height:100%;background:var(--gold);border-radius:100em;transition:width 0.4s ease;width:0%;}
+.progress-label{font-size:0.6875em;letter-spacing:0.12em;text-transform:uppercase;color:var(--muted);font-weight:400;white-space:nowrap;font-family:var(--fh);}
+.quiz-context-step{display:none;animation:fadeUp 0.35s ease both;}
+.quiz-context-step.active{display:block;}
+.context-icon{width:3em;height:3em;background:var(--gold-f);border:0.03125em solid var(--border2);border-radius:0.75em;display:flex;align-items:center;justify-content:center;margin-bottom:1.5em;}
+.context-icon svg{width:1.375em;height:1.375em;stroke:var(--gold);fill:none;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round;}
+.context-title{font-family:var(--fh);font-size:1.375em;font-weight:800;letter-spacing:-0.025em;line-height:1.2;margin-bottom:0.625em;}
+.context-title em{font-style:normal;color:var(--gold);}
+.context-body{font-size:0.875em;font-weight:300;color:var(--muted2);line-height:1.65;margin-bottom:1.75em;}
+.context-stat{background:var(--bg3);border:0.03125em solid var(--border);border-radius:0.75em;padding:1.25em 1.375em;}
+.context-stat-num{font-family:var(--fh);font-size:2em;font-weight:800;color:var(--white);letter-spacing:-0.04em;line-height:1;margin-bottom:0.25em;}
+.context-stat-num span{color:var(--gold);}
+.context-stat-label{font-size:0.75em;color:var(--muted);font-weight:300;line-height:1.4;}
+.q-card{display:none;animation:fadeUp 0.35s ease both;}
+.q-card.active{display:block;}
+.q-num{font-size:0.6875em;letter-spacing:0.16em;text-transform:uppercase;color:var(--gold);font-weight:400;margin-bottom:0.875em;}
+.q-text{font-family:var(--fh);font-size:clamp(1.25rem,2.5vw,1.625rem);font-weight:800;line-height:1.15;letter-spacing:-0.025em;margin-bottom:0.5em;color:var(--white);}
+.q-sub{font-size:0.875em;color:var(--muted2);font-weight:300;margin-bottom:1.75em;line-height:1.6;}
+.answers{display:flex;flex-direction:column;gap:0.625em;}
+.answer-btn{display:flex;align-items:flex-start;gap:0.875em;background:var(--bg3);border:0.03125em solid var(--border);border-radius:0.75em;padding:1em 1.25em;cursor:pointer;text-align:left;width:100%;transition:border-color 0.2s,background 0.2s,transform 0.15s;}
+.answer-btn:hover{border-color:var(--border2);background:#141922;transform:translateX(3px);}
+.answer-btn.selected{border-color:var(--gold);background:var(--gold-f);}
+.answer-dot{width:1.125em;height:1.125em;flex-shrink:0;border-radius:50%;border:0.09375em solid var(--muted);margin-top:0.125em;transition:border-color 0.2s,background 0.2s;display:flex;align-items:center;justify-content:center;}
+.answer-btn.selected .answer-dot{border-color:var(--gold);background:var(--gold);}
+.answer-dot-inner{width:0.4375em;height:0.4375em;background:#07090D;border-radius:50%;opacity:0;transition:opacity 0.2s;}
+.answer-btn.selected .answer-dot-inner{opacity:1;}
+.answer-label{font-size:0.875em;font-weight:400;color:var(--white);line-height:1.4;}
+.answer-sublabel{font-size:0.75em;color:var(--muted);font-weight:300;margin-top:0.125em;}
+.q-nav{display:flex;justify-content:space-between;align-items:center;margin-top:1.75em;padding-top:1.5em;border-top:0.03125em solid var(--border);}
+.q-back-btn{display:flex;align-items:center;gap:0.375em;font-size:0.8125em;color:var(--muted);background:none;border:none;cursor:pointer;font-family:inherit;transition:color 0.2s;padding:0;font-weight:300;letter-spacing:0.04em;}
+.q-back-btn:hover{color:var(--white);}
+.q-back-btn svg{width:0.875em;height:0.875em;stroke:currentColor;fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;}
+.q-next-btn{display:inline-flex;align-items:center;gap:0.5em;background:var(--gold);color:#07090D;font-family:var(--fh);font-size:0.875em;font-weight:700;padding:0.75em 1.625em;border-radius:0.5em;border:none;cursor:pointer;transition:background 0.2s,opacity 0.2s,transform 0.15s;opacity:0.35;pointer-events:none;letter-spacing:0.01em;}
+.q-next-btn.enabled{opacity:1;pointer-events:auto;}
+.q-next-btn.enabled:hover{background:var(--gold2);transform:translateY(-0.125em);}
+.q-next-btn svg{width:0.875em;height:0.875em;stroke:currentColor;fill:none;stroke-width:2.5;stroke-linecap:round;stroke-linejoin:round;}
+.results-wrap{display:none;}
+.results-wrap.active{display:block;}
+.score-band{background:var(--bg2);border-bottom:0.03125em solid var(--border);padding:4em 5vw;text-align:center;}
+.score-ring-wrap{position:relative;display:inline-block;margin:1.25em 0;}
+.score-ring{width:8rem;height:8rem;transform:rotate(-90deg);}
+.score-ring-track{fill:none;stroke:var(--border);stroke-width:6;}
+.score-ring-fill{fill:none;stroke:var(--gold);stroke-width:6;stroke-linecap:round;stroke-dasharray:251.2;stroke-dashoffset:251.2;transition:stroke-dashoffset 1.2s cubic-bezier(0.4,0,0.2,1);}
+.score-ring-fill.red{stroke:#EF4444;}
+.score-ring-fill.amber{stroke:#F59E0B;}
+.score-ring-fill.green{stroke:#10B981;}
+.score-number{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;font-family:var(--fh);font-size:2rem;font-weight:800;color:var(--white);letter-spacing:-0.04em;}
+.score-band h2{margin:0 auto 0.625em;}
+.score-band .sec-sub{margin:0 auto;}
+.metrics-row{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--border);border-radius:1em;overflow:hidden;margin:3em 0;}
+.metric-cell{background:var(--bg3);padding:1.75em 1.5em;text-align:center;}
+.findings-grid{display:flex;flex-direction:column;gap:0.75em;margin-bottom:3em;}
+.finding-tcard{background:var(--bg3);border:0.03125em solid var(--border);border-radius:0.875em;padding:1.5em 1.75em;display:flex;align-items:flex-start;gap:1em;transition:border-color 0.2s;animation:fadeUp 0.4s ease both;}
+.finding-tcard:nth-child(1){animation-delay:0.05s;}
+.finding-tcard:nth-child(2){animation-delay:0.12s;}
+.finding-tcard:nth-child(3){animation-delay:0.19s;}
+.finding-tcard:hover{border-color:rgba(240,165,0,0.2);}
+.finding-tcard .value-icon{width:2.625em;height:2.625em;flex-shrink:0;border-radius:0.5625em;background:var(--gold-f);border:0.03125em solid var(--border2);display:flex;align-items:center;justify-content:center;}
+.finding-tcard .value-icon svg{width:1.1875em;height:1.1875em;stroke:var(--gold);fill:none;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round;}
+.finding-tcard h4{font-family:var(--fh);font-size:0.9375em;font-weight:700;margin-bottom:0.25em;letter-spacing:-0.01875em;color:var(--white);}
+.finding-tcard p{font-size:0.8125em;font-weight:300;color:var(--muted2);line-height:1.65;}
+@keyframes fadeUp{from{opacity:0;transform:translateY(1rem);}to{opacity:1;transform:translateY(0);}}
+@media(max-width:51.25em){
+  .quiz-wrap{grid-template-columns:1fr;}
+  .quiz-left{position:static;height:auto;border-right:none;border-bottom:0.03125em solid var(--border);}
+  .metrics-row{grid-template-columns:1fr;}
+}
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="index.html" class="logo-wrap">
+    <div class="logo-mark"><img src="logo_transparent.png" alt="Economy AI" style="width:6em;height:2em;"></div>
+    <div class="logo-text"><span class="logo-top">Economy AI</span><span class="logo-bottom">Automation Agency · Fresno, CA</span></div>
+  </a>
+  <a href="index.html" class="nav-back">
+    <svg viewBox="0 0 24 24"><polyline points="15 18 9 12 15 6"/></svg>
+    Back to site
+  </a>
+</nav>
+
+<!-- HERO -->
+<div class="assess-hero" id="hero-section">
+  <div class="hero-bg-lines" aria-hidden="true">
+    <svg viewBox="0 0 1440 800" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg">
+      <defs><radialGradient id="hg" cx="50%" cy="40%" r="55%"><stop offset="0%" stop-color="#F0A500" stop-opacity="0.10"/><stop offset="100%" stop-color="#F0A500" stop-opacity="0"/></radialGradient></defs>
+      <ellipse cx="720" cy="320" rx="600" ry="380" fill="url(#hg)"/>
+      <g stroke="#F0A500" stroke-opacity="0.05" stroke-width="0.5">
+        <line x1="0" y1="0" x2="0" y2="800"/><line x1="120" y1="0" x2="120" y2="800"/><line x1="240" y1="0" x2="240" y2="800"/><line x1="360" y1="0" x2="360" y2="800"/><line x1="480" y1="0" x2="480" y2="800"/><line x1="600" y1="0" x2="600" y2="800"/><line x1="720" y1="0" x2="720" y2="800"/><line x1="840" y1="0" x2="840" y2="800"/><line x1="960" y1="0" x2="960" y2="800"/><line x1="1080" y1="0" x2="1080" y2="800"/><line x1="1200" y1="0" x2="1200" y2="800"/><line x1="1320" y1="0" x2="1320" y2="800"/>
+        <line x1="0" y1="100" x2="1440" y2="100"/><line x1="0" y1="200" x2="1440" y2="200"/><line x1="0" y1="300" x2="1440" y2="300"/><line x1="0" y1="400" x2="1440" y2="400"/><line x1="0" y1="500" x2="1440" y2="500"/><line x1="0" y1="600" x2="1440" y2="600"/><line x1="0" y1="700" x2="1440" y2="700"/>
+      </g>
+      <circle cx="720" cy="300" r="2.5" fill="#F0A500" fill-opacity="0.7"/>
+      <circle cx="360" cy="180" r="1.5" fill="#F0A500" fill-opacity="0.4"/>
+      <circle cx="1080" cy="420" r="1.5" fill="#F0A500" fill-opacity="0.4"/>
+    </svg>
+  </div>
+  <div class="assess-hero-inner">
+    <div class="hero-badge">60-Second Automation Assessment</div>
+    <h1>How much time is your<br>business <em>really</em> losing?</h1>
+    <p class="hero-sub">Answer 7 quick questions and we'll calculate exactly how many hours per week you're losing to manual work — and what it's costing you in real dollars.</p>
+    <div class="hero-actions" style="justify-content:center;">
+      <button class="btn-primary" onclick="startQuiz()" style="display:inline-flex;align-items:center;gap:0.5em;">
+        Find out now
+        <svg viewBox="0 0 24 24" style="width:1em;height:1em;stroke:currentColor;fill:none;stroke-width:2.5;stroke-linecap:round;stroke-linejoin:round;"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+      </button>
+    </div>
+    <p class="assess-meta">No email required &nbsp;·&nbsp; Takes <span>under 60 seconds</span></p>
+  </div>
+</div>
+
+<!-- QUIZ -->
+<div class="quiz-wrap" id="quiz-section">
+  <div class="quiz-left">
+    <div class="sec-tag">Free automation assessment</div>
+    <div class="quiz-context-step active" id="ctx-1">
+      <div class="context-icon"><svg viewBox="0 0 24 24"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg></div>
+      <div class="context-title">Every industry has <em>different</em> automation wins</div>
+      <div class="context-body">Real estate agents waste time on manual lead follow-up. Healthcare practices lose hours to prior authorization. Contractors build estimates from scratch every time. Your industry tells us where to look first.</div>
+      <div class="context-stat"><div class="context-stat-num">10<span>+</span></div><div class="context-stat-label">Central Valley industries where Economy AI has built automations</div></div>
+    </div>
+    <div class="quiz-context-step" id="ctx-2">
+      <div class="context-icon"><svg viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg></div>
+      <div class="context-title">Team size changes the <em>scale</em> of the problem</div>
+      <div class="context-body">A solo operator losing 10 hours a week to admin is a different problem than a 15-person team doing the same thing. Both are fixable — the solution is just different in scope.</div>
+      <div class="context-stat"><div class="context-stat-num">65<span>%</span></div><div class="context-stat-label">of typical SMB admin work is automatable with modern AI tools</div></div>
+    </div>
+    <div class="quiz-context-step" id="ctx-3">
+      <div class="context-icon"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg></div>
+      <div class="context-title">Time is the most <em>expensive</em> thing you have</div>
+      <div class="context-body">Most business owners dramatically underestimate how many hours per week go to work that doesn't require a human. Adding it up across your whole team is usually a sobering exercise.</div>
+      <div class="context-stat"><div class="context-stat-num">20<span>+</span></div><div class="context-stat-label">hours per week recovered on average by Economy AI clients</div></div>
+    </div>
+    <div class="quiz-context-step" id="ctx-4">
+      <div class="context-icon"><svg viewBox="0 0 24 24"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg></div>
+      <div class="context-title">The biggest pain is usually the <em>fastest</em> win</div>
+      <div class="context-body">Economy AI prioritizes the automation that eliminates your most painful workflow first — not the most technically interesting one. The result you feel fastest is the one that creates the most momentum.</div>
+      <div class="context-stat"><div class="context-stat-num">72<span>h</span></div><div class="context-stat-label">from audit kickoff to your first working automation prototype</div></div>
+    </div>
+    <div class="quiz-context-step" id="ctx-5">
+      <div class="context-icon"><svg viewBox="0 0 24 24"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg></div>
+      <div class="context-title">Slow response doesn't just cost time — it <em>costs revenue</em></div>
+      <div class="context-body">Leads contacted within 5 minutes convert at dramatically higher rates than those contacted after an hour. Most businesses respond in hours — or days. That gap has a real dollar value.</div>
+      <div class="context-stat"><div class="context-stat-num">60<span>sec</span></div><div class="context-stat-label">Economy AI automations respond to every new lead — day or night</div></div>
+    </div>
+    <div class="quiz-context-step" id="ctx-6">
+      <div class="context-icon"><svg viewBox="0 0 24 24"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg></div>
+      <div class="context-title">Revenue determines the <em>ROI equation</em></div>
+      <div class="context-body">A $500K business and a $5M business both waste time on manual work — but the dollar value of each hour is very different. This helps us put real numbers on your specific automation opportunity.</div>
+      <div class="context-stat"><div class="context-stat-num">6–12<span>×</span></div><div class="context-stat-label">typical first-year ROI on an Economy AI automation project</div></div>
+    </div>
+    <div class="quiz-context-step" id="ctx-7">
+      <div class="context-icon"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></div>
+      <div class="context-title">One more question and <em>your results are ready</em></div>
+      <div class="context-body">We'll show you your personalized automation score, calculate your estimated time and cost savings, and identify the top three workflows in your business that are ready to automate right now.</div>
+      <div class="context-stat"><div class="context-stat-num">Free<span>+</span></div><div class="context-stat-label">audit and working prototype included — no commitment required</div></div>
+    </div>
+  </div>
+
+  <div class="quiz-right">
+    <div class="progress-wrap">
+      <div class="progress-track"><div class="progress-fill" id="progress-fill"></div></div>
+      <div class="progress-label" id="progress-label">Question 1 of 7</div>
+    </div>
+
+    <div class="q-card active" id="q1">
+      <div class="q-num">Question 1 of 7</div>
+      <div class="q-text">What type of business do you run?</div>
+      <div class="q-sub">We'll tailor your results to the workflows most common in your industry.</div>
+      <div class="answers">
+        <button class="answer-btn" data-q="1" data-val="realestate" onclick="selectAnswer(this)"><div class="answer-dot"><div class="answer-dot-inner"></div></div><div><div class="answer-label">Real Estate</div><div class="answer-sublabel">Agent, broker, brokerage, or property management</div></div></button>
+        <button class="answer-btn" data-q="1" data-val="healthcare" onclick="selectAnswer(this)"><div class="answer-dot"><div class="answer-dot-inner"></div></div><div><div class="answer-label">Healthcare / Medical</div><div class="answer-sublabel">Medical practice, clinic, or health services</div></div></button>
+        <button class="answer-btn" data-q="1" data-val="legal" onclick="selectAnswer(this)"><div class="answer-dot"><div class="answer-dot-inner"></div></div><div><div class="answer-label">Legal / Professional Services</div><div class="answer-sublabel">Law firm, accounting, consulting, or financial services</div></div></button>
+        <button class="answer-btn" data-q="1" data-val="construction" onclick="selectAnswer(this)"><div class="answer-dot"><div class="answer-dot-inner"></div></div><div><div class="answer-label">Construction / Trades</div><div class="answer-sublabel">General contractor, specialty trade, or home services</div></div></button>
+        <button class="answer-btn" data-q="1" data-val="other" onclick="selectAnswer(this)"><div class="answer-dot"><div class="answer-dot-inner"></div></div><div><div class="answer-label">Agriculture, Retail, Restaurant, Logistics, or Other</div><div class="answer-sublabel">Any other Central Valley business type</div></div></button>
+      </div>
+      <div class="q-nav"><div></div><button class="q-next-btn" id="next-1" onclick="nextQuestion(1)">Next <svg viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></button></div>
+    </div>
+
+    <div class="q-card" id="q2">
+      <div class="q-num">Question 2 of 7</div>
+      <div class="q-text">How many people work in your business?</div>
+      <div class="q-sub">Including yourself, part-time staff, and anyone involved in day-to-day operations.</div>
+      <div class="answers">
+        <button class="answer-btn" data-q="2" data-val="1" onclick="selectAnswer(this)"><div class="answer-dot"><div class="answer-dot-inner"></div></div><div><div class="answer-label">Just me</div><div class="answer-sublabel">Solo operator wearing all the hats</div></div></button>
+        <button class="answer-btn" data-q="2" data-val="2" onclick="selectAnswer(this)"><div class="answer-dot"><div class="answer-dot-inner"></div></div><div><div class="answer-label">2 – 5 people</div><div class="answer-sublabel">Small team, everyone does a bit of everything</div></div></button>
+        <button class="answer-btn" data-q="2" data-val="3" onclick="selectAnswer(this)"><div class="answer-dot"><div class="answer-dot-inner"></div></div><div><div class="answer-label">6 – 20 people</div><div class="answer-sublabel">Growing team with some defined roles</div></div></button>
+        <button class="answer-btn" data-q="2" data-val="4" onclick="selectAnswer(this)"><div class="answer-dot"><div class="answer-dot-inner"></div></div><div><div class="answer-label">20+ people</div><div class="answer-sublabel">Established operation with dedicated staff</div></div></button>
+      </div>
+      <div class="q-nav"><button class="q-back-btn" onclick="prevQuestion(2)"><svg viewBox="0 0 24 24"><polyline points="15 18 9 12 15 6"/></svg> Back</button><button class="q-next-btn" id="next-2" onclick="nextQuestion(2)">Next <svg viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></button></div>
+    </div>
+
+    <div class="q-card" id="q3">
+      <div class="q-num">Question 3 of 7</div>
+      <div class="q-text">How many hours per week does your team spend on repetitive admin tasks?</div>
+      <div class="q-sub">Data entry, follow-up emails, scheduling, status updates, manual reports, chasing documents.</div>
+      <div class="answers">
+        <button class="answer-btn" data-q="3" data-val="5" onclick="selectAnswer(this)"><div class="answer-dot"><div class="answer-dot-inner"></div></div><div><div class="answer-label">Less than 5 hours</div><div class="answer-sublabel">Mostly under control</div></div></button>
+        <button class="answer-btn" data-q="3" data-val="10" onclick="selectAnswer(this)"><div class="answer-dot"><div class="answer-dot-inner"></div></div><div><div class="answer-label">5 – 10 hours</div><div class="answer-sublabel">Noticeable but manageable</div></div></button>
+        <button class="answer-btn" data-q="3" data-val="20" onclick="selectAnswer(this)"><div class="answer-dot"><div class="answer-dot-inner"></div></div><div><div class="answer-label">10 – 20 hours</div><div class="answer-sublabel">It's a real problem and everyone feels it</div></div></button>
+        <button class="answer-btn" data-q="3" data-val="30" onclick="selectAnswer(this)"><div class="answer-dot"><div class="answer-dot-inner"></div></div><div><div class="answer-label">20+ hours</div><div class="answer-sublabel">Admin is eating the business alive</div></div></button>
+      </div>
+      <div class="q-nav"><button class="q-back-btn" onclick="prevQuestion(3)"><svg viewBox="0 0 24 24"><polyline points="15 18 9 12 15 6"/></svg> Back</button><button class="q-next-btn" id="next-3" onclick="nextQuestion(3)">Next <svg viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></button></div>
+    </div>
+
+    <div class="q-card" id="q4">
+      <div class="q-num">Question 4 of 7</div>
+      <div class="q-text">What's your biggest operational pain point right now?</div>
+      <div class="q-sub">Pick the one that costs you the most time or causes the most stress.</div>
+      <div class="answers">
+        <button class="answer-btn" data-q="4" data-val="leads" onclick="selectAnswer(this)"><div class="answer-dot"><div class="answer-dot-inner"></div></div><div><div class="answer-label">Responding to leads and following up with prospects</div><div class="answer-sublabel">Speed-to-response, nurture sequences, CRM updates</div></div></button>
+        <button class="answer-btn" data-q="4" data-val="scheduling" onclick="selectAnswer(this)"><div class="answer-dot"><div class="answer-dot-inner"></div></div><div><div class="answer-label">Scheduling, reminders, and calendar management</div><div class="answer-sublabel">Appointments, confirmations, no-shows, rescheduling</div></div></button>
+        <button class="answer-btn" data-q="4" data-val="docs" onclick="selectAnswer(this)"><div class="answer-dot"><div class="answer-dot-inner"></div></div><div><div class="answer-label">Documents, reports, and compliance paperwork</div><div class="answer-sublabel">Proposals, contracts, compliance reports, data entry</div></div></button>
+        <button class="answer-btn" data-q="4" data-val="billing" onclick="selectAnswer(this)"><div class="answer-dot"><div class="answer-dot-inner"></div></div><div><div class="answer-label">Invoicing, billing, and chasing payments</div><div class="answer-sublabel">Sending invoices, payment reminders, collections</div></div></button>
+        <button class="answer-btn" data-q="4" data-val="comms" onclick="selectAnswer(this)"><div class="answer-dot"><div class="answer-dot-inner"></div></div><div><div class="answer-label">Customer communication and status updates</div><div class="answer-sublabel">Answering the same questions, sending updates manually</div></div></button>
+      </div>
+      <div class="q-nav"><button class="q-back-btn" onclick="prevQuestion(4)"><svg viewBox="0 0 24 24"><polyline points="15 18 9 12 15 6"/></svg> Back</button><button class="q-next-btn" id="next-4" onclick="nextQuestion(4)">Next <svg viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></button></div>
+    </div>
+
+    <div class="q-card" id="q5">
+      <div class="q-num">Question 5 of 7</div>
+      <div class="q-text">Have you lost business because your team couldn't respond fast enough?</div>
+      <div class="q-sub">A lead that went cold, a client that left, an opportunity missed due to bandwidth.</div>
+      <div class="answers">
+        <button class="answer-btn" data-q="5" data-val="3" onclick="selectAnswer(this)"><div class="answer-dot"><div class="answer-dot-inner"></div></div><div><div class="answer-label">Yes — this happens regularly</div><div class="answer-sublabel">I can think of multiple recent examples</div></div></button>
+        <button class="answer-btn" data-q="5" data-val="2" onclick="selectAnswer(this)"><div class="answer-dot"><div class="answer-dot-inner"></div></div><div><div class="answer-label">Probably — it's hard to track</div><div class="answer-sublabel">I suspect we're losing opportunities but can't quantify it</div></div></button>
+        <button class="answer-btn" data-q="5" data-val="1" onclick="selectAnswer(this)"><div class="answer-dot"><div class="answer-dot-inner"></div></div><div><div class="answer-label">Rarely or not that I know of</div><div class="answer-sublabel">Response time hasn't been a major issue</div></div></button>
+      </div>
+      <div class="q-nav"><button class="q-back-btn" onclick="prevQuestion(5)"><svg viewBox="0 0 24 24"><polyline points="15 18 9 12 15 6"/></svg> Back</button><button class="q-next-btn" id="next-5" onclick="nextQuestion(5)">Next <svg viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></button></div>
+    </div>
+
+    <div class="q-card" id="q6">
+      <div class="q-num">Question 6 of 7</div>
+      <div class="q-text">What's your approximate annual revenue?</div>
+      <div class="q-sub">This helps us put real dollar numbers on your automation opportunity.</div>
+      <div class="answers">
+        <button class="answer-btn" data-q="6" data-val="1" onclick="selectAnswer(this)"><div class="answer-dot"><div class="answer-dot-inner"></div></div><div><div class="answer-label">Under $500,000</div></div></button>
+        <button class="answer-btn" data-q="6" data-val="2" onclick="selectAnswer(this)"><div class="answer-dot"><div class="answer-dot-inner"></div></div><div><div class="answer-label">$500,000 – $1 million</div></div></button>
+        <button class="answer-btn" data-q="6" data-val="3" onclick="selectAnswer(this)"><div class="answer-dot"><div class="answer-dot-inner"></div></div><div><div class="answer-label">$1 million – $5 million</div></div></button>
+        <button class="answer-btn" data-q="6" data-val="4" onclick="selectAnswer(this)"><div class="answer-dot"><div class="answer-dot-inner"></div></div><div><div class="answer-label">$5 million – $20 million</div></div></button>
+        <button class="answer-btn" data-q="6" data-val="5" onclick="selectAnswer(this)"><div class="answer-dot"><div class="answer-dot-inner"></div></div><div><div class="answer-label">Over $20 million</div></div></button>
+      </div>
+      <div class="q-nav"><button class="q-back-btn" onclick="prevQuestion(6)"><svg viewBox="0 0 24 24"><polyline points="15 18 9 12 15 6"/></svg> Back</button><button class="q-next-btn" id="next-6" onclick="nextQuestion(6)">Next <svg viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></button></div>
+    </div>
+
+    <div class="q-card" id="q7">
+      <div class="q-num">Question 7 of 7</div>
+      <div class="q-text">How ready are you to actually do something about this?</div>
+      <div class="q-sub">Be honest — it helps us give you a more useful result.</div>
+      <div class="answers">
+        <button class="answer-btn" data-q="7" data-val="3" onclick="selectAnswer(this)"><div class="answer-dot"><div class="answer-dot-inner"></div></div><div><div class="answer-label">Very ready — I want to move on this now</div><div class="answer-sublabel">I'm actively looking for a solution</div></div></button>
+        <button class="answer-btn" data-q="7" data-val="2" onclick="selectAnswer(this)"><div class="answer-dot"><div class="answer-dot-inner"></div></div><div><div class="answer-label">Interested but want to understand my options first</div><div class="answer-sublabel">Exploring before committing to anything</div></div></button>
+        <button class="answer-btn" data-q="7" data-val="1" onclick="selectAnswer(this)"><div class="answer-dot"><div class="answer-dot-inner"></div></div><div><div class="answer-label">Just curious — not actively looking yet</div><div class="answer-sublabel">Seeing what's out there</div></div></button>
+      </div>
+      <div class="q-nav"><button class="q-back-btn" onclick="prevQuestion(7)"><svg viewBox="0 0 24 24"><polyline points="15 18 9 12 15 6"/></svg> Back</button><button class="q-next-btn" id="next-7" onclick="showResults()">See my results <svg viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></button></div>
+    </div>
+  </div>
+</div>
+
+<!-- RESULTS -->
+<div class="results-wrap" id="results-section">
+  <div class="score-band">
+    <div class="sec-tag">Your Automation Assessment Results</div>
+    <div class="score-ring-wrap">
+      <svg class="score-ring" viewBox="0 0 90 90">
+        <circle class="score-ring-track" cx="45" cy="45" r="40"/>
+        <circle class="score-ring-fill" id="score-ring-fill" cx="45" cy="45" r="40"/>
+      </svg>
+      <div class="score-number" id="score-display">0</div>
+    </div>
+    <h2 id="result-title">Loading your results...</h2>
+    <p class="sec-sub" id="result-desc" style="margin:0.875em auto 0;"></p>
+  </div>
+
+  <section style="background:var(--bg);">
+    <div class="sec-tag">What the numbers say</div>
+    <h2>Your personalized <em>automation opportunity</em></h2>
+    <div class="metrics-row">
+      <div class="metric-cell"><div class="stat-num" id="metric-hours">—</div><div class="stat-label">automatable hours<br>per week</div></div>
+      <div class="metric-cell"><div class="stat-num" id="metric-cost">—</div><div class="stat-label">estimated annual cost<br>of manual work</div></div>
+      <div class="metric-cell"><div class="stat-num" id="metric-roi">—</div><div class="stat-label">estimated first-year<br>ROI on automation</div></div>
+    </div>
+    <div class="sec-tag">Top opportunities identified</div>
+    <h2 style="margin-bottom:2em;">Three workflows <em>ready to automate</em></h2>
+    <div class="findings-grid" id="findings-list"></div>
+  </section>
+
+  <div class="cta-band">
+    <div class="sec-tag">Limited-time offer</div>
+    <h2>Free audit. Free prototype.<br><em>Zero commitment.</em></h2>
+    <p class="sec-sub" id="cta-desc" style="margin:0.875em auto 2em;">Book your free 30-minute audit and we'll build a working prototype of your highest-impact workflow at no charge.</p>
+    <a href="audit.html" class="btn-primary" style="font-size:1em;padding:0.9375em 2.125em;display:inline-flex;align-items:center;gap:0.5em;">
+      Book my free audit + prototype
+      <svg viewBox="0 0 24 24" style="width:1em;height:1em;stroke:currentColor;fill:none;stroke-width:2.5;stroke-linecap:round;stroke-linejoin:round;"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+    </a>
+    <p class="form-note" style="margin-top:1em;">Free · No commitment · <span style="color:var(--gold);">Free prototype included</span></p>
+  </div>
+
+  <footer>
+    <p>© 2026 Economy AI · Fresno, California</p>
+    <div class="footer-social">
+      <a href="https://www.tiktok.com/@economyaiagency" class="social-link" aria-label="Economy AI on TikTok" target="_blank" rel="noopener"><svg viewBox="0 0 24 24"><path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-2.88 2.5 2.89 2.89 0 0 1-2.89-2.89 2.89 2.89 0 0 1 2.89-2.89c.28 0 .54.04.79.1V9.01a6.33 6.33 0 0 0-.79-.05 6.34 6.34 0 0 0-6.34 6.34 6.34 6.34 0 0 0 6.34 6.34 6.34 6.34 0 0 0 6.33-6.34V8.69a8.18 8.18 0 0 0 4.78 1.52V6.75a4.85 4.85 0 0 1-1.01-.06z"/></svg></a>
+      <a href="https://www.linkedin.com/in/economy-ai-110258405/" class="social-link" aria-label="Economy AI on LinkedIn" target="_blank" rel="noopener"><svg viewBox="0 0 24 24"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg></a>
+      <a href="https://www.instagram.com/economyaiagency" class="social-link" aria-label="Economy AI on Instagram" target="_blank" rel="noopener"><svg viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 1 0 0 12.324 6.162 6.162 0 0 0 0-12.324zM12 16a4 4 0 1 1 0-8 4 4 0 0 1 0 8zm6.406-11.845a1.44 1.44 0 1 0 0 2.881 1.44 1.44 0 0 0 0-2.881z"/></svg></a>
+    </div>
+    <div class="flinks">
+      <a href="index.html">Home</a><a href="index.html#services">Services</a><a href="index.html#industries">Industries</a><a href="audit.html">Book Audit</a><a href="mailto:hello@economyaiagency.com">Contact</a>
+    </div>
+  </footer>
+</div>
+
+<script>
+const answers={};const TOTAL=7;
+function startQuiz(){document.getElementById('hero-section').style.display='none';document.getElementById('quiz-section').classList.add('active');updateProgress(1);window.scrollTo({top:0,behavior:'smooth'});}
+function selectAnswer(btn){const q=btn.dataset.q;document.querySelectorAll('.answer-btn[data-q="'+q+'"]').forEach(b=>b.classList.remove('selected'));btn.classList.add('selected');answers[q]=btn.dataset.val;const nb=document.getElementById('next-'+q);if(nb)nb.classList.add('enabled');}
+function nextQuestion(c){if(!answers[c])return;document.getElementById('q'+c).classList.remove('active');document.getElementById('q'+(c+1)).classList.add('active');document.getElementById('ctx-'+c).classList.remove('active');document.getElementById('ctx-'+(c+1)).classList.add('active');updateProgress(c+1);window.scrollTo({top:0,behavior:'smooth'});}
+function prevQuestion(c){document.getElementById('q'+c).classList.remove('active');document.getElementById('q'+(c-1)).classList.add('active');document.getElementById('ctx-'+c).classList.remove('active');document.getElementById('ctx-'+(c-1)).classList.add('active');updateProgress(c-1);window.scrollTo({top:0,behavior:'smooth'});}
+function updateProgress(n){document.getElementById('progress-fill').style.width=((n-1)/TOTAL*100)+'%';document.getElementById('progress-label').textContent='Question '+n+' of '+TOTAL;}
+function showResults(){if(!answers[7])return;document.getElementById('quiz-section').classList.remove('active');document.getElementById('results-section').classList.add('active');window.scrollTo({top:0,behavior:'smooth'});computeResults();}
+function computeResults(){
+  const hr=parseInt(answers[3])||10,tm={'1':1,'2':2.5,'3':5,'4':10}[answers[2]]||2.5,rate={'1':35,'2':55,'3':75,'4':100,'5':150}[answers[6]]||55,lb=parseInt(answers[5])||2,rd=parseInt(answers[7])||2;
+  const th=Math.round(hr*tm*0.65),ac=Math.round((th*52*rate)/1000)*1000,roi=Math.max(1,Math.round(ac/6500));
+  let s=0;s+=Math.min(hr,30)/30*40;s+=lb/3*30;s+=(parseInt(answers[2])||2)/4*20;s+=rd/3*10;s=Math.min(Math.round(s),99);
+  const ring=document.getElementById('score-ring-fill');ring.className='score-ring-fill '+(s>=70?'red':s>=40?'amber':'green');
+  setTimeout(()=>{ring.style.strokeDashoffset=251.2-(251.2*s/100);},100);
+  animateNum('score-display',s,1200);
+  setTimeout(()=>{document.getElementById('metric-hours').innerHTML=th+'<span>/wk</span>';},200);
+  setTimeout(()=>{document.getElementById('metric-cost').innerHTML='$'+(ac/1000).toFixed(0)+'K<span>/yr</span>';},350);
+  setTimeout(()=>{document.getElementById('metric-roi').innerHTML=roi+'<span>\xd7</span>';},500);
+  const tier=s>=70?'high':s>=40?'medium':'low';
+  const titles={high:{t:'Your business is losing <em>serious time</em> — and real money',d:'Based on your answers, an estimated '+th+' hours per week is going to manual work AI can automate. That\'s not a productivity problem — it\'s a systems problem. And it\'s fixable.'},medium:{t:'You have a <em>real automation opportunity</em> right now',d:'Your business is spending meaningful time on manual work that can be significantly reduced. With the right automations, your team could reclaim '+th+' hours per week.'},low:{t:'Some targeted automation <em>wins are available</em> to you',d:'Your admin workload is relatively contained, but there are still specific automation opportunities that could save time and reduce risk in your key workflows.'}};
+  document.getElementById('result-title').innerHTML=titles[tier].t;document.getElementById('result-desc').textContent=titles[tier].d;
+  const pm={leads:{svg:'<path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12 19.79 19.79 0 0 1 1.63 3.36 2 2 0 0 1 3.6 1.18h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.72a16 16 0 0 0 6 6l.91-.91a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 21.73 16z"/>',h:'Lead response & nurture automation',p:'An AI agent responds to every new inquiry within 60 seconds — day or night — qualifying leads and booking appointments automatically.'},scheduling:{svg:'<circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/>',h:'Scheduling & reminder automation',p:'Automated confirmation and reminder sequences sent at 48 hours and 2 hours before every appointment eliminate no-shows without anyone lifting a finger.'},docs:{svg:'<path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/>',h:'Document & compliance automation',p:'AI generates first drafts of standard documents, collects compliance data, and maintains a searchable audit trail without manual effort.'},billing:{svg:'<line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/>',h:'Invoice & collections automation',p:'Invoices generated and sent automatically on completion. Payment reminder sequences run without a coordinator managing them manually.'},comms:{svg:'<path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/>',h:'Customer communication automation',p:'An AI chatbot handles 70-80% of inbound questions automatically, around the clock, without a human involved.'}};
+  const im={realestate:{svg:'<path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/>',h:'Real estate workflow automation',p:'CRM updates, transaction coordination, buyer/seller status emails, and past-client nurture sequences are all candidates for automation.'},healthcare:{svg:'<path d="M22 12h-4l-3 9L9 3l-3 9H2"/>',h:'Healthcare workflow automation',p:'Patient scheduling, insurance eligibility verification, and clinical documentation are the highest-ROI automation opportunities for medical practices.'},legal:{svg:'<path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>',h:'Legal workflow automation',p:'Client intake, conflict checks, document drafting, and deadline tracking are all highly automatable — and the biggest time drains in any law firm.'},construction:{svg:'<polygon points="12 2 2 7 12 12 22 7 12 2"/><polyline points="2 17 12 22 22 17"/><polyline points="2 12 12 17 22 12"/>',h:'Contractor workflow automation',p:'Instant lead response, automated estimate follow-up, crew scheduling, and invoice generation are the fastest-ROI automations for contractors.'},other:{svg:'<polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/>',h:'Industry-specific workflow automation',p:'Economy AI has built automations for Central Valley businesses like yours. Your free audit identifies the exact highest-impact opportunities.'}};
+  const pf={svg:'<polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/>',h:'Free prototype — see it before you buy it',p:'Every audit includes a working prototype of your top workflow built at no charge. See automation running on your actual business before spending a dollar.'};
+  document.getElementById('findings-list').innerHTML=[pm[answers[4]]||pm.comms,im[answers[1]]||im.other,pf].map(f=>'<div class="finding-tcard"><div class="value-icon"><svg viewBox="0 0 24 24">'+f.svg+'</svg></div><div><h4>'+f.h+'</h4><p>'+f.p+'</p></div></div>').join('');
+  const cd={high:"Your numbers show significant automation potential. A free 30-minute audit will show you exactly what to fix first — and we'll build a working prototype of your top workflow at no charge.",medium:"A free 30-minute audit gives you a prioritized plan and an exact ROI estimate — plus a free working prototype of your highest-impact workflow.",low:"Even with a lower admin burden, a free 30-minute audit identifies targeted automation wins that save time and reduce risk. Free prototype included."};
+  document.getElementById('cta-desc').textContent=cd[tier];
+  if(typeof gtag!=='undefined')gtag('event','assessment_complete',{score:s,industry:answers[1],pain:answers[4]});
+}
+function animateNum(id,t,d){const el=document.getElementById(id);let c=0;const steps=60,inc=t/steps,interval=d/steps;const ti=setInterval(()=>{c=Math.min(c+inc,t);el.textContent=Math.round(c);if(c>=t)clearInterval(ti);},interval);}
+</script>
+</body>
+</html>
