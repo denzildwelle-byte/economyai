@@ -76,12 +76,18 @@
 
 <div class="page-wrap">
 
-  <!-- LEFT: value prop -->
+  <!-- LEFT: value prop (personalized via URL params) -->
   <div class="left-panel">
     <div class="left-bg"></div>
     <div class="sec-tag">Free · No commitment · Free prototype included</div>
-    <h1>Book your free<br><em>process audit</em></h1>
-    <p class="lead">In 30 minutes we'll map your biggest time drain, discuss what can be automated, and provide a clear ROI estimate — at no charge. For a limited time we'll also build a <strong style="color:var(--gold);">free working prototype</strong> of your highest-impact workflow.</p>
+    <h1 id="audit-headline">Book your free<br><em>process audit</em></h1>
+    <p class="lead" id="audit-lead">In 30 minutes we'll map your biggest time drain, discuss what can be automated, and provide a clear ROI estimate — at no charge. For a limited time we'll also build a <strong style="color:var(--gold);">free working prototype</strong> of your highest-impact workflow.</p>
+
+    <!-- Prototype example box -->
+    <div style="background:rgba(240,165,0,0.08);border:1px solid rgba(240,165,0,0.2);border-radius:0.625em;padding:1em 1.25em;margin:1.25em 0;">
+      <div style="font-size:0.6875em;letter-spacing:0.1em;text-transform:uppercase;color:var(--gold);font-weight:600;margin-bottom:0.5em;">What a free prototype looks like</div>
+      <p style="font-size:0.8125em;color:var(--muted2);font-weight:300;line-height:1.6;margin:0;">"We built a prototype that automatically responds to new leads via text within 60 seconds — around the clock. The business owner saw it running on their phone before the meeting ended."</p>
+    </div>
 
     <div class="promise-list">
       <div class="promise-item">
@@ -99,7 +105,7 @@
         </div>
         <div class="promise-text">
           <strong>Clear ROI estimate</strong>
-          <span>We'll put initial numbers on how much time and money automation saves you.</span>
+          <span>We'll put real numbers on how much time and money automation saves you.</span>
         </div>
       </div>
       <div class="promise-item">
@@ -116,7 +122,7 @@
           <svg viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
         </div>
         <div class="promise-text">
-          <strong>Local & hands-on</strong>
+          <strong>Local &amp; hands-on</strong>
           <span>We're based in Fresno and know the Central Valley market.</span>
         </div>
       </div>
@@ -130,6 +136,13 @@
         </div>
       </div>
     </div>
+
+    <!-- Phone CTA - prominent -->
+    <div style="margin-top:1.75em;padding:1em 1.25em;background:rgba(255,255,255,0.04);border:1px solid var(--border2);border-radius:0.625em;">
+      <p style="font-size:0.8125em;color:var(--muted2);font-weight:300;margin:0 0 0.375em;">Prefer to call or text?</p>
+      <a href="tel:5592034399" style="font-size:1.25em;font-weight:700;color:var(--gold);text-decoration:none;font-family:var(--fh);letter-spacing:-0.02em;">(559) 203-4399</a>
+      <p style="font-size:0.75em;color:var(--muted);font-weight:300;margin:0.25em 0 0;">We pick up. No voicemail maze.</p>
+    </div>
   </div>
 
   <!-- RIGHT: Calendly booking widget -->
@@ -142,7 +155,10 @@
         data-url="https://calendly.com/d/cxzh-qrs-84z/audit-workshop?hide_gdpr_banner=1&background_color=07090D&text_color=EDF1F7&primary_color=F0A500"
       ></div>
     </div>
-    <p class="form-note" style="margin-top: 1em;">Questions? Email <a href="mailto:hello@economyaiagency.com" style="color:var(--gold);text-decoration:none;">hello@economyaiagency.com</a></p>
+    <p class="form-note" style="margin-top: 1em;">
+      Questions? Call or text <a href="tel:5592034399" style="color:var(--gold);text-decoration:none;font-weight:600;">(559) 203-4399</a>
+      or email <a href="mailto:hello@economyaiagency.com" style="color:var(--gold);text-decoration:none;">hello@economyaiagency.com</a>
+    </p>
   </div>
 
 </div>
@@ -169,5 +185,44 @@
 </footer>
 
 <script src="https://assets.calendly.com/assets/external/widget.js"></script>
+<script>
+// Personalize page from URL params passed by assessment.html
+(function(){
+  const p = new URLSearchParams(window.location.search);
+  const name = p.get('name') || '';
+  const industry = p.get('industry') || '';
+  const pain = p.get('pain') || '';
+  const score = p.get('score') || '';
+  const hours = p.get('hours') || '';
+
+  const painLabels = {
+    leads: 'lead response & follow-up',
+    scheduling: 'scheduling & calendar management',
+    docs: 'documents & compliance paperwork',
+    billing: 'invoicing & collections',
+    comms: 'customer communication'
+  };
+  const industryLabels = {
+    realestate: 'real estate',
+    healthcare: 'healthcare',
+    legal: 'legal & professional services',
+    construction: 'construction & trades',
+    other: 'your industry'
+  };
+
+  const headline = document.getElementById('audit-headline');
+  const lead = document.getElementById('audit-lead');
+
+  if(name && headline){
+    headline.innerHTML = name + ', let\'s look at<br>your <em>automation map</em>';
+  }
+  if(pain && lead){
+    const painLabel = painLabels[pain] || 'your top bottleneck';
+    const industryLabel = industryLabels[industry] || 'your business';
+    const hoursText = hours ? ' — you\'re losing an estimated '+hours+' hours a week' : '';
+    lead.innerHTML = 'Based on your assessment, the biggest win for '+industryLabel+' is <strong style="color:var(--gold);">'+painLabel+'</strong>'+hoursText+'. In 30 minutes we\'ll map exactly how to fix it and build a free working prototype at no charge.';
+  }
+})();
+</script>
 </body>
 </html>
