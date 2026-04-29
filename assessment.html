@@ -34,6 +34,16 @@
 </head>
 <body>
 
+<!-- Hidden Netlify form for static detection (required by Netlify at build time) -->
+<form name="lead-capture" netlify netlify-honeypot="bot-field" hidden>
+  <input type="text" name="name">
+  <input type="text" name="contact">
+  <input type="hidden" name="industry">
+  <input type="hidden" name="pain">
+  <input type="hidden" name="score">
+  <input type="hidden" name="hours">
+</form>
+
 <nav>
   <a href="index.html" class="logo-wrap">
     <div class="logo-mark"><img src="logo_transparent.png" alt="Economy AI" style="width:6em;height:2em;"></div>
@@ -251,12 +261,12 @@
     <div class="q-card" id="q-gate">
       <div class="q-num">Almost done — your results are ready</div>
       <div class="q-text">Where should we send your<br><em>full automation report?</em></div>
-      <div class="q-sub">We'll email you a summary of your results and the top automations for your business. No spam — ever.</div>
+      <div class="q-sub">We'll email you a summary of your results. No spam — ever.</div>
       <div style="display:flex;flex-direction:column;gap:0.875em;margin-top:1.5em;">
         <input id="gate-name" type="text" placeholder="Your first name" autocomplete="given-name"
           style="background:var(--bg3);border:1px solid var(--border2);border-radius:0.5em;padding:0.875em 1em;color:var(--white);font-family:var(--fb);font-size:0.9375em;font-weight:300;outline:none;transition:border-color 0.2s;"
           onfocus="this.style.borderColor='var(--gold)'" onblur="this.style.borderColor='var(--border2)'">
-        <input id="gate-phone" type="tel" placeholder="Phone or email (optional)" autocomplete="tel"
+        <input id="gate-phone" type="tel" placeholder="Email (optional)" autocomplete="tel"
           style="background:var(--bg3);border:1px solid var(--border2);border-radius:0.5em;padding:0.875em 1em;color:var(--white);font-family:var(--fb);font-size:0.9375em;font-weight:300;outline:none;transition:border-color 0.2s;"
           onfocus="this.style.borderColor='var(--gold)'" onblur="this.style.borderColor='var(--border2)'">
         <p style="font-size:0.75em;color:var(--muted);font-weight:300;margin-top:-0.25em;">Only your name is required. We won't share your info or spam you.</p>
@@ -380,14 +390,53 @@ function nextQuestion7(){
   window.scrollTo({top:0,behavior:'smooth'});
 }
 
-function submitGate(){
+async function submitGate(){
   leadName = document.getElementById('gate-name').value.trim();
   leadContact = document.getElementById('gate-phone').value.trim();
-  // Fire GA event with lead info if available
-  if(typeof gtag!=='undefined' && leadContact){
+
+  // Fire GA event
+  if(typeof gtag!=='undefined' && (leadName||leadContact)){
     gtag('event','lead_captured',{name:leadName,contact:leadContact,industry:answers[1],pain:answers[4]});
   }
+
+  // Submit to Netlify Forms if we have at least a name or contact
+  if(leadName || leadContact){
+    const painLabels={leads:'Lead response & follow-up',scheduling:'Scheduling & reminders',docs:'Documents & compliance',billing:'Invoicing & collections',comms:'Customer communication'};
+    const industryLabels={realestate:'Real Estate',healthcare:'Healthcare',legal:'Legal / Professional Services',construction:'Construction & Trades',other:'Other'};
+
+    const formData = new FormData();
+    formData.append('form-name', 'lead-capture');
+    formData.append('name', leadName || '(not provided)');
+    formData.append('contact', leadContact || '(not provided)');
+    formData.append('industry', industryLabels[answers[1]] || answers[1] || '—');
+    formData.append('pain', painLabels[answers[4]] || answers[4] || '—');
+    try {
+      await fetch('/', { method: 'POST', body: formData });
+    } catch(e){
+      console.warn('Netlify form submission failed:', e);
+    }
+  }
+
   showResults();
+}
+
+async function submitLeadWithResults(score, hours){
+  if(!leadName && !leadContact) return;
+  const painLabels={leads:'Lead response & follow-up',scheduling:'Scheduling & reminders',docs:'Documents & compliance',billing:'Invoicing & collections',comms:'Customer communication'};
+  const industryLabels={realestate:'Real Estate',healthcare:'Healthcare',legal:'Legal / Professional Services',construction:'Construction & Trades',other:'Other'};
+  const formData = new FormData();
+  formData.append('form-name', 'lead-capture');
+  formData.append('name', leadName || '(not provided)');
+  formData.append('contact', leadContact || '(not provided)');
+  formData.append('industry', industryLabels[answers[1]] || answers[1] || '—');
+  formData.append('pain', painLabels[answers[4]] || answers[4] || '—');
+  formData.append('score', score + ' / 100');
+  formData.append('hours', hours + ' hrs/week automatable');
+  try {
+    await fetch('/', { method: 'POST', body: formData });
+  } catch(e){
+    console.warn('Netlify results submission failed:', e);
+  }
 }
 
 function showResults(){
@@ -416,6 +465,7 @@ function computeResults(){
   const cd={high:"Your numbers show significant automation potential. A free 30-minute audit will show you exactly what to fix first — and we'll build a working prototype of your top workflow at no charge.",medium:"A free 30-minute audit gives you a prioritized plan and an exact ROI estimate — plus a free working prototype of your highest-impact workflow.",low:"Even with a lower admin burden, a free 30-minute audit identifies targeted automation wins that save time and reduce risk. Free prototype included."};
   document.getElementById('cta-desc').textContent=cd[tier];
   if(typeof gtag!=='undefined')gtag('event','assessment_complete',{score:s,industry:answers[1],pain:answers[4]});
+  submitLeadWithResults(s, th);
 
   // Build URL params to personalize audit.html
   const params=new URLSearchParams({industry:answers[1]||'',pain:answers[4]||'',score:s,hours:th,name:leadName});
