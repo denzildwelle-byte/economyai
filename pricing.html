@@ -15,6 +15,51 @@
 <link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png">
 <link rel="apple-touch-icon" sizes="192x192" href="favicon-192.png">
 
+<style>
+/* 4-column layout when Quick Win tier is present */
+.pricing-grid {
+  grid-template-columns: repeat(4, 1fr) !important;
+}
+@media (max-width: 72em) {
+  .pricing-grid {
+    grid-template-columns: repeat(2, 1fr) !important;
+  }
+}
+@media (max-width: 44em) {
+  .pricing-grid {
+    grid-template-columns: 1fr !important;
+  }
+}
+
+/* Quick Win card accent — teal/green instead of gold to feel distinct */
+.price-card-quickwin {
+  border-top: 3px solid #2EC4A0 !important;
+}
+.price-card-quickwin .price-tier-badge {
+  color: #2EC4A0 !important;
+}
+.price-card-quickwin .price-num {
+  color: #2EC4A0 !important;
+}
+.price-card-quickwin .price-features svg {
+  stroke: #2EC4A0 !important;
+}
+.quickwin-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.375em;
+  background: rgba(46,196,160,0.1);
+  border: 1px solid rgba(46,196,160,0.25);
+  color: #2EC4A0;
+  font-size: 0.6875em;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  padding: 0.3em 0.75em;
+  border-radius: 6.25em;
+  margin-bottom: 0.875em;
+}
+</style>
 </head>
 <body>
 
@@ -73,7 +118,7 @@
   </div>
   <div class="hero-badge">Transparent Pricing</div>
   <h1>Fixed costs. <em>Real value.</em><br>No surprises.</h1>
-  <p class="hero-sub">The prices below are starting guidelines — every project is scoped to your specific needs and budget. We work with Central Valley businesses of all sizes to craft affordable solutions that deliver real ROI. Book a free audit and we'll give you an exact number before you commit to anything.</p>
+  <p class="hero-sub">Four tiers — from a single automation live in 48 hours, to a full-scale operations transformation. Every project is scoped to your specific needs and budget, and the free audit comes with a working prototype before you spend a dollar.</p>
 </div>
 
 <!-- DELIVERY TIERS -->
@@ -85,11 +130,74 @@
   <!-- GUIDELINE NOTICE -->
   <div style="background:var(--gold-f);border:0.03125em solid var(--border2);border-radius:0.75em;padding:1.25em 1.75em;margin-top:2.5em;margin-bottom:-0.75em;display:flex;align-items:flex-start;gap:1em;">
     <svg viewBox="0 0 24 24" style="width:1.25em;height:1.25em;stroke:var(--gold);fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;flex-shrink:0;margin-top:0.1em;"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
-    <p style="font-size:0.875em;color:var(--muted2);font-weight:300;line-height:1.65;margin:0;"><strong style="color:var(--white);font-weight:500;">These prices are starting guidelines, not fixed quotes.</strong> Every engagement is scoped to your specific workflows, business size, and budget. We work with Central Valley businesses of all sizes — including those who need something more affordable than the ranges shown. <a href="assessment.html" style="color:var(--gold);text-decoration:none;font-weight:400;">Book a free audit</a> and we'll give you an exact number before you commit to anything.</p>
+    <p style="font-size:0.875em;color:var(--muted2);font-weight:300;line-height:1.65;margin:0;"><strong style="color:var(--white);font-weight:500;">These prices are starting guidelines, not fixed quotes.</strong> Every engagement is scoped to your specific workflows, business size, and budget. The Quick Win tier is designed for businesses that want to start small, see results fast, and expand from there. <a href="audit.html" style="color:var(--gold);text-decoration:none;font-weight:400;">Book a free audit</a> and we'll tell you exactly which tier fits your situation — and give you an exact quote before you commit to anything.</p>
   </div>
 
   <div class="pricing-grid">
-    
+
+    <!-- QUICK WIN TIER -->
+    <div class="price-card price-card-quickwin">
+      <span class="quickwin-badge">
+        <svg viewBox="0 0 24 24" style="width:0.875em;height:0.875em;stroke:currentColor;fill:none;stroke-width:2.5;stroke-linecap:round;stroke-linejoin:round;"><polyline points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
+        Best first step
+      </span>
+      <div class="price-tier-badge">Quick Win</div>
+      <div class="price-amount">
+        <span class="price-dollar">$</span>
+        <span class="price-num">1,500</span>
+        <span class="price-period">one-time</span>
+      </div>
+      <p class="price-desc">One pre-scoped automation, live in 48 hours. The fastest way to see AI working in your business.</p>
+
+      <div class="price-includes">
+        <div class="price-inc-label">What's included</div>
+        <ul class="price-features">
+          <li>
+            <svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
+            <span><strong>One pre-built automation</strong> — choose from lead response, follow-up sequence, or appointment reminders</span>
+          </li>
+          <li>
+            <svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
+            <span><strong>1 integration</strong> — connect to your CRM, email, or calendar</span>
+          </li>
+          <li>
+            <svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
+            <span><strong>Light AI training</strong> — tailored to your business name, tone, and FAQs</span>
+          </li>
+          <li>
+            <svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
+            <span><strong>48-hour delivery</strong> — running in your business in two days</span>
+          </li>
+          <li>
+            <svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
+            <span><strong>30-min handoff call</strong> — we walk you through what was built</span>
+          </li>
+          <li>
+            <svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
+            <span><strong>14 days post-launch support</strong> — fixes and questions covered</span>
+          </li>
+        </ul>
+      </div>
+
+      <div class="price-examples">
+        <div class="price-ex-label">Choose one of</div>
+        <div class="price-tags">
+          <span>Lead response bot</span>
+          <span>Follow-up sequence</span>
+          <span>Appointment reminders</span>
+        </div>
+      </div>
+
+      <div style="margin-top:1.25em;padding:0.875em 1em;background:rgba(46,196,160,0.06);border:1px solid rgba(46,196,160,0.15);border-radius:0.5em;">
+        <p style="font-size:0.75em;color:var(--muted2);font-weight:300;line-height:1.6;margin:0;">
+          <strong style="color:#2EC4A0;font-weight:500;">Not sure if it's worth it?</strong>
+          Book the free audit first — we'll build a prototype at no charge so you can see it working before you spend anything.
+        </p>
+      </div>
+
+      <a href="audit.html" class="btn-ghost" style="width:100%;text-align:center;margin-top:1.25em;border-color:rgba(46,196,160,0.4);color:#2EC4A0;">Get started free →</a>
+    </div>
+
     <!-- STARTER TIER -->
     <div class="price-card">
       <div class="price-tier-badge">Starter</div>
@@ -409,6 +517,10 @@
   <h2>Pricing <em>questions answered</em></h2>
   <div class="faq-grid">
     <div class="faq-item">
+      <h3>What's the difference between Quick Win and Starter?</h3>
+      <p>Quick Win is a single, pre-scoped automation — we pick from a short menu of proven workflows (lead response bot, follow-up sequence, appointment reminders) and have it live in 48 hours. Starter is more flexible: you define the workflow, we scope it, and it can be more complex. Quick Win is the right choice if you want to see AI working in your business as fast as possible with minimal commitment. Starter is better when you have a specific workflow in mind that isn't on the Quick Win menu.</p>
+    </div>
+    <div class="faq-item">
       <h3>Do I need a retainer if I buy a one-time project?</h3>
       <p>No. Every delivery tier includes post-launch support (30–90 days depending on tier). The retainer is optional for businesses that want ongoing optimization, new features, or peace of mind that someone's watching the system.</p>
     </div>
@@ -439,7 +551,7 @@
 <div class="cta-band">
   <div class="sec-tag">Let's find the right fit</div>
   <h2>Get an exact quote<br>built for <em>your budget</em></h2>
-  <p class="sec-sub">The numbers above are guidelines. Book a free 30-minute audit and we'll scope a solution built specifically for your workflows and budget — no commitment, no pressure.</p>
+  <p class="sec-sub">The numbers above are guidelines — Quick Win starts at $1,500 and can be live in 48 hours. Book a free 30-minute audit and we'll recommend the right tier for your workflows and budget, with no commitment or pressure.</p>
   <a href="assessment.html" class="btn-primary" style="font-size:1em;padding:0.9375em 2.125em;">Schedule my free audit</a>
 </div>
 
