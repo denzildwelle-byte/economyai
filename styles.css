@@ -1342,3 +1342,277 @@ footer p { font-size: 0.75em; color: var(--muted); font-weight: 300; }
   .quiz-left{position:static;height:auto;border-right:none;border-bottom:0.03125em solid var(--border);}
   .metrics-row{grid-template-columns:1fr;}
 }
+
+
+/* ═══════════════════════════════════════════════════════════════
+   VIDEOS PAGE — videos.html
+   ═══════════════════════════════════════════════════════════════ */
+
+/* ── Video grid ──────────────────────────────────────────────── */
+.video-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(19rem, 1fr));
+  gap: 1.5rem;
+  margin-top: 2.5rem;
+  max-width: 72rem;
+}
+
+/* ── Video card ──────────────────────────────────────────────── */
+.video-card {
+  background: var(--bg2);
+  border: 0.03125em solid var(--border);
+  border-radius: 0.875em;
+  overflow: hidden;
+  transition: transform 0.2s, border-color 0.2s, box-shadow 0.2s;
+  cursor: pointer;
+  text-decoration: none;
+  display: flex;
+  flex-direction: column;
+}
+.video-card:hover {
+  transform: translateY(-0.25em);
+  border-color: var(--border2);
+  box-shadow: 0 1em 2.5em rgba(240,165,0,0.08);
+}
+
+/* ── Thumbnail + play overlay ────────────────────────────────── */
+.video-thumb {
+  position: relative;
+  aspect-ratio: 16 / 9;
+  background: var(--bg3);
+  overflow: hidden;
+}
+.video-thumb iframe,
+.video-thumb img {
+  width: 100%;
+  height: 100%;
+  border: none;
+  display: block;
+  object-fit: cover;
+  pointer-events: none;
+}
+.video-thumb .play-overlay {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(7,9,13,0.35);
+  transition: background 0.2s;
+}
+.video-card:hover .play-overlay { background: rgba(7,9,13,0.15); }
+
+.play-btn {
+  width: 3.25rem;
+  height: 3.25rem;
+  background: var(--gold);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.2s, background 0.2s;
+  flex-shrink: 0;
+}
+.video-card:hover .play-btn { transform: scale(1.1); background: var(--gold2); }
+.play-btn svg {
+  width: 1.1rem;
+  height: 1.1rem;
+  fill: #07090D;
+  margin-left: 0.175rem;
+}
+
+/* ── Duration badge ──────────────────────────────────────────── */
+.duration-badge {
+  position: absolute;
+  bottom: 0.5rem;
+  right: 0.625rem;
+  background: rgba(7,9,13,0.82);
+  border: 0.03125em solid var(--border);
+  color: var(--white);
+  font-size: 0.6875em;
+  font-weight: 500;
+  padding: 0.2em 0.5em;
+  border-radius: 0.25em;
+  letter-spacing: 0.03em;
+}
+
+/* ── Card body ───────────────────────────────────────────────── */
+.video-body {
+  padding: 1.125rem 1.25rem 1.375rem;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+.video-cat {
+  font-size: 0.625em;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--gold);
+  font-weight: 400;
+  margin-bottom: 0.5em;
+}
+.video-title {
+  font-family: var(--fh);
+  font-size: 1em;
+  font-weight: 600;
+  color: var(--white);
+  line-height: 1.35;
+  margin-bottom: 0.625em;
+}
+.video-desc {
+  font-size: 0.8125em;
+  font-weight: 300;
+  color: var(--muted2);
+  line-height: 1.6;
+  flex: 1;
+}
+.video-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 1rem;
+  padding-top: 0.875rem;
+  border-top: 0.03125em solid var(--border);
+}
+.video-speaker {
+  display: flex;
+  align-items: center;
+  gap: 0.5em;
+  font-size: 0.75em;
+  color: var(--muted);
+  font-weight: 300;
+}
+.speaker-dot {
+  width: 0.5rem;
+  height: 0.5rem;
+  border-radius: 50%;
+  background: var(--gold);
+  flex-shrink: 0;
+}
+.video-watch {
+  font-size: 0.75em;
+  font-weight: 600;
+  color: var(--gold);
+  display: inline-flex;
+  align-items: center;
+  gap: 0.3em;
+}
+.video-watch svg {
+  width: 0.75em;
+  height: 0.75em;
+  stroke: currentColor;
+  fill: none;
+  stroke-width: 2.5;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+/* ── Filter tabs ─────────────────────────────────────────────── */
+.filter-row {
+  display: flex;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+  margin-top: 2rem;
+}
+.filter-btn {
+  font-size: 0.8125em;
+  font-weight: 400;
+  color: var(--muted2);
+  background: var(--bg2);
+  border: 0.03125em solid var(--border);
+  border-radius: 6.25em;
+  padding: 0.4em 1em;
+  cursor: pointer;
+  font-family: var(--fb);
+  transition: all 0.15s;
+  letter-spacing: 0.02em;
+}
+.filter-btn:hover { color: var(--white); border-color: rgba(255,255,255,0.18); }
+.filter-btn.active {
+  background: var(--gold-f);
+  border-color: var(--border2);
+  color: var(--gold);
+}
+
+/* ── YouTube channel CTA band ────────────────────────────────── */
+.channel-band {
+  background: var(--bg2);
+  border: 0.03125em solid var(--border2);
+  border-radius: 1em;
+  padding: 2em 2.25em;
+  margin-top: 3.5rem;
+  max-width: 72rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1.5em;
+  flex-wrap: wrap;
+}
+.channel-info { flex: 1; min-width: 16em; }
+.channel-info strong {
+  display: block;
+  font-family: var(--fh);
+  font-size: 1.125em;
+  font-weight: 700;
+  color: var(--white);
+  margin-bottom: 0.375em;
+}
+.channel-info span {
+  font-size: 0.875em;
+  color: var(--muted2);
+  font-weight: 300;
+}
+
+/* ── YouTube subscribe button ────────────────────────────────── */
+.yt-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.625em;
+  background: #FF0000;
+  color: #fff;
+  font-family: var(--fb);
+  font-size: 0.9375em;
+  font-weight: 600;
+  padding: 0.8em 1.5em;
+  border-radius: 0.4375em;
+  text-decoration: none;
+  transition: background 0.2s, transform 0.15s;
+  white-space: nowrap;
+}
+.yt-btn:hover { background: #CC0000; transform: translateY(-0.1em); }
+.yt-btn svg { width: 1.25em; height: 1.25em; fill: currentColor; }
+
+/* ── Coming-soon placeholder card ────────────────────────────── */
+.coming-soon {
+  background: var(--bg2);
+  border: 0.03125em solid var(--border);
+  border-radius: 0.875em;
+  padding: 3em 2em;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.875em;
+}
+.coming-soon svg {
+  width: 2.5rem;
+  height: 2.5rem;
+  stroke: var(--gold);
+  fill: none;
+  stroke-width: 1.5;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+.coming-soon p {
+  font-size: 0.875em;
+  color: var(--muted2);
+  font-weight: 300;
+  max-width: 20em;
+  line-height: 1.6;
+}
+
+/* ── Mobile responsive overrides ────────────────────────────── */
+@media (max-width: 51.25em) {
+  .video-grid { grid-template-columns: 1fr; }
+  .channel-band { flex-direction: column; align-items: flex-start; }
+}
