@@ -1,3 +1,0 @@
-﻿[[redirects]] from = "/wp-admin/*" to = "/404" status = 404 
-[[redirects]] from = "/wp-login.php" to = "/404" status = 404 
-[[redirects]] from = "/xmlrpc.php" to = "/404" status = 404
