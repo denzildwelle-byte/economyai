@@ -582,7 +582,7 @@ property managers. Reach out directly or book a free 30-minute discovery. No com
   </div>
 </footer>
 
-<div class="hp-modal" id="hp-promo-modal" role="dialog" aria-labelledby="hp-modal-title" aria-modal="true" hidden>
+<!-- <div class="hp-modal" id="hp-promo-modal" role="dialog" aria-labelledby="hp-modal-title" aria-modal="true" hidden>
   <div class="hp-modal__card">
     <button type="button" class="hp-modal__close" id="hp-modal-close" aria-label="Close">×</button>
     <div class="hp-modal__badge"><img src="assets/icons/star-gold.svg" alt="" width="15" height="15"> Limited time offer</div>
@@ -593,7 +593,7 @@ property managers. Reach out directly or book a free 30-minute discovery. No com
       <button type="button" class="btn-hero-ghost" id="hp-modal-later">Maybe later →</button>
     </div>
   </div>
-</div>
+</div> -->
 
 <script>
   const io = new IntersectionObserver(entries => {
@@ -703,20 +703,20 @@ property managers. Reach out directly or book a free 30-minute discovery. No com
     io.observe(el);
   });
 
-  const modal = document.getElementById('hp-promo-modal');
-  const closeModal = () => { if (modal) modal.hidden = true; };
-  if (modal && !sessionStorage.getItem('hp-modal-dismissed')) {
-    setTimeout(() => { modal.hidden = false; }, 1200);
-  }
-  document.getElementById('hp-modal-close')?.addEventListener('click', () => {
-    sessionStorage.setItem('hp-modal-dismissed', '1');
-    closeModal();
-  });
-  document.getElementById('hp-modal-later')?.addEventListener('click', () => {
-    sessionStorage.setItem('hp-modal-dismissed', '1');
-    closeModal();
-  });
-  modal?.addEventListener('click', e => { if (e.target === modal) closeModal(); });
+  // const modal = document.getElementById('hp-promo-modal');
+  // const closeModal = () => { if (modal) modal.hidden = true; };
+  // if (modal && !sessionStorage.getItem('hp-modal-dismissed')) {
+  //   setTimeout(() => { modal.hidden = false; }, 1200);
+  // }
+  // document.getElementById('hp-modal-close')?.addEventListener('click', () => {
+  //   sessionStorage.setItem('hp-modal-dismissed', '1');
+  //   closeModal();
+  // });
+  // document.getElementById('hp-modal-later')?.addEventListener('click', () => {
+  //   sessionStorage.setItem('hp-modal-dismissed', '1');
+  //   closeModal();
+  // });
+  // modal?.addEventListener('click', e => { if (e.target === modal) closeModal(); });
 </script>
 
 <!-- MOBILE MENU -->
